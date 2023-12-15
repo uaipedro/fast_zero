@@ -56,7 +56,55 @@
         "documentation": {}
     },
     {
+        "label": "DeclarativeBase",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Mapped",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "mapped_column",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -77,6 +125,119 @@
         "description": "pydantic",
         "isExtraImport": true,
         "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseSettings",
+        "importPath": "pydantic_settings",
+        "description": "pydantic_settings",
+        "isExtraImport": true,
+        "detail": "pydantic_settings",
+        "documentation": {}
+    },
+    {
+        "label": "SettingsConfigDict",
+        "importPath": "pydantic_settings",
+        "description": "pydantic_settings",
+        "isExtraImport": true,
+        "detail": "pydantic_settings",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "context",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "sqlalchemy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "engine_from_config",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "pool",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "select",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "fileConfig",
+        "importPath": "logging.config",
+        "description": "logging.config",
+        "isExtraImport": true,
+        "detail": "logging.config",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "isExtraImport": true,
+        "detail": "fast_zero.models",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "isExtraImport": true,
+        "detail": "fast_zero.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "isExtraImport": true,
+        "detail": "fast_zero.models",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "importPath": "fast_zero.settings",
+        "description": "fast_zero.settings",
+        "isExtraImport": true,
+        "detail": "fast_zero.settings",
         "documentation": {}
     },
     {
@@ -120,6 +281,24 @@
         "description": "fast_zero.app",
         "peekOfCode": "app = create_app()",
         "detail": "fast_zero.app",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 6,
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "peekOfCode": "class Base(DeclarativeBase):\n    pass\nclass User(Base):\n    __tablename__ = 'users'\n    id: Mapped[int] = mapped_column(primary_key=True)\n    username: Mapped[str]\n    email: Mapped[str]\n    password: Mapped[str]",
+        "detail": "fast_zero.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "peekOfCode": "class User(Base):\n    __tablename__ = 'users'\n    id: Mapped[int] = mapped_column(primary_key=True)\n    username: Mapped[str]\n    email: Mapped[str]\n    password: Mapped[str]",
+        "detail": "fast_zero.models",
         "documentation": {}
     },
     {
@@ -177,11 +356,74 @@
         "documentation": {}
     },
     {
+        "label": "Settings",
+        "kind": 6,
+        "importPath": "fast_zero.settings",
+        "description": "fast_zero.settings",
+        "peekOfCode": "class Settings(BaseSettings):\n    model_config = SettingsConfigDict(\n        env_file='.env', env_file_encoding='utf-8'\n    )\n    DATABASE_URL: str",
+        "detail": "fast_zero.settings",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.91f64c6ca4eb_create_users_table",
+        "description": "migrations.versions.91f64c6ca4eb_create_users_table",
+        "peekOfCode": "def upgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('users',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('username', sa.String(), nullable=False),\n    sa.Column('email', sa.String(), nullable=False),\n    sa.Column('password', sa.String(), nullable=False),\n    sa.PrimaryKeyConstraint('id')\n    )\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.91f64c6ca4eb_create_users_table",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.91f64c6ca4eb_create_users_table",
+        "description": "migrations.versions.91f64c6ca4eb_create_users_table",
+        "peekOfCode": "def downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.drop_table('users')\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.91f64c6ca4eb_create_users_table",
+        "documentation": {}
+    },
+    {
+        "label": "run_migrations_offline",
+        "kind": 2,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "def run_migrations_offline() -> None:\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation\n    we don't even need a DBAPI to be available.\n    Calls to context.execute() here emit the given string to the\n    script output.\n    \"\"\"\n    url = config.get_main_option(\"sqlalchemy.url\")",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "run_migrations_online",
+        "kind": 2,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "def run_migrations_online() -> None:\n    \"\"\"Run migrations in 'online' mode.\n    In this scenario we need to create an Engine\n    and associate a connection with the context.\n    \"\"\"\n    connectable = engine_from_config(\n        config.get_section(config.config_ini_section, {}),\n        prefix=\"sqlalchemy.\",\n        poolclass=pool.NullPool,\n    )",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 5,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "config = context.config\nconfig.set_main_option('sqlalchemy.url', Settings().DATABASE_URL)\n# Interpret the config file for Python logging.\n# This line sets up loggers basically.\nif config.config_file_name is not None:\n    fileConfig(config.config_file_name)\n# add your model's MetaData object here\n# for 'autogenerate' support\n# from myapp import mymodel\n# target_metadata = mymodel.Base.metadata",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "target_metadata",
+        "kind": 5,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "target_metadata = Base.metadata\n# other values from the config, defined by the needs of env.py,\n# can be acquired:\n# my_important_option = config.get_main_option(\"my_important_option\")\n# ... etc.\ndef run_migrations_offline() -> None:\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
         "label": "app",
         "kind": 2,
         "importPath": "tests.conftest",
         "description": "tests.conftest",
-        "peekOfCode": "def app():\n    return create_app()\n@pytest.fixture\ndef client(app):\n    return TestClient(app)",
+        "peekOfCode": "def app():\n    return create_app()\n@pytest.fixture\ndef client(app):\n    return TestClient(app)\n@pytest.fixture\ndef session():\n    engine = create_engine('sqlite:///:memory:')\n    Session = sessionmaker(bind=engine)\n    Base.metadata.create_all(engine)",
         "detail": "tests.conftest",
         "documentation": {}
     },
@@ -190,7 +432,16 @@
         "kind": 2,
         "importPath": "tests.conftest",
         "description": "tests.conftest",
-        "peekOfCode": "def client(app):\n    return TestClient(app)",
+        "peekOfCode": "def client(app):\n    return TestClient(app)\n@pytest.fixture\ndef session():\n    engine = create_engine('sqlite:///:memory:')\n    Session = sessionmaker(bind=engine)\n    Base.metadata.create_all(engine)\n    yield Session()\n    Base.metadata.drop_all(engine)",
+        "detail": "tests.conftest",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "kind": 2,
+        "importPath": "tests.conftest",
+        "description": "tests.conftest",
+        "peekOfCode": "def session():\n    engine = create_engine('sqlite:///:memory:')\n    Session = sessionmaker(bind=engine)\n    Base.metadata.create_all(engine)\n    yield Session()\n    Base.metadata.drop_all(engine)",
         "detail": "tests.conftest",
         "documentation": {}
     },
@@ -273,6 +524,15 @@
         "description": "tests.test_app",
         "peekOfCode": "fake_user_with_id = {\n    'id': 1,\n    'username': 'alice',\n    'email': 'alice@example.com',\n}\ndef test_root_deve_retornar_200_e_ola_mundo(client):\n    response = client.get('/')\n    assert response.status_code == 200\n    assert response.json() == {'message': 'Olá Mundo!'}\ndef test_create_user(client):",
         "detail": "tests.test_app",
+        "documentation": {}
+    },
+    {
+        "label": "test_create_user",
+        "kind": 2,
+        "importPath": "tests.test_db",
+        "description": "tests.test_db",
+        "peekOfCode": "def test_create_user(session):\n    new_user = User(username='alice', password='secret', email='teste@test')\n    session.add(new_user)\n    session.commit()\n    user = session.scalar(select(User).where(User.username == 'alice'))\n    assert user.username == 'alice'\n    assert user.password == 'secret'\n    assert user.email == 'teste@test'",
+        "detail": "tests.test_db",
         "documentation": {}
     }
 ]

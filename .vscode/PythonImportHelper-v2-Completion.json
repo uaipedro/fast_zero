@@ -8,6 +8,87 @@
         "documentation": {}
     },
     {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "UserDB",
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "isExtraImport": true,
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserList",
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "isExtraImport": true,
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserPartial",
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "isExtraImport": true,
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserPublic",
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "isExtraImport": true,
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserSchema",
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "isExtraImport": true,
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
         "label": "TestClient",
         "importPath": "fastapi.testclient",
         "description": "fastapi.testclient",
@@ -16,7 +97,7 @@
         "documentation": {}
     },
     {
-        "label": "app",
+        "label": "create_app",
         "importPath": "fast_zero.app",
         "description": "fast_zero.app",
         "isExtraImport": true,
@@ -24,11 +105,11 @@
         "documentation": {}
     },
     {
-        "label": "read_root",
+        "label": "create_app",
         "kind": 2,
         "importPath": "fast_zero.app",
         "description": "fast_zero.app",
-        "peekOfCode": "def read_root():\n    return {'message': 'Olá Mundo!'}",
+        "peekOfCode": "def create_app():\n    app = FastAPI()\n    @app.get('/')\n    def read_root():\n        return {'message': 'Olá Mundo!'}\n    database = []  # database in memory\n    @app.post('/users/', status_code=201, response_model=UserPublic)\n    def create_user(user: UserSchema):\n        user_with_id = UserDB(**user.model_dump(), id=len(database) + 1)\n        database.append(user_with_id)",
         "detail": "fast_zero.app",
         "documentation": {}
     },
@@ -37,8 +118,80 @@
         "kind": 5,
         "importPath": "fast_zero.app",
         "description": "fast_zero.app",
-        "peekOfCode": "app = FastAPI()\n@app.get('/')\ndef read_root():\n    return {'message': 'Olá Mundo!'}",
+        "peekOfCode": "app = create_app()",
         "detail": "fast_zero.app",
+        "documentation": {}
+    },
+    {
+        "label": "UserSchema",
+        "kind": 6,
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "peekOfCode": "class UserSchema(BaseModel):\n    username: str\n    email: EmailStr\n    password: str\nclass UserPublic(BaseModel):\n    id: int\n    username: str\n    email: EmailStr\nclass UserPartial(BaseModel):\n    username: Optional[str] = None",
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserPublic",
+        "kind": 6,
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "peekOfCode": "class UserPublic(BaseModel):\n    id: int\n    username: str\n    email: EmailStr\nclass UserPartial(BaseModel):\n    username: Optional[str] = None\n    email: Optional[EmailStr] = None\n    password: Optional[str] = None\nclass UserDB(UserSchema):\n    id: int",
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserPartial",
+        "kind": 6,
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "peekOfCode": "class UserPartial(BaseModel):\n    username: Optional[str] = None\n    email: Optional[EmailStr] = None\n    password: Optional[str] = None\nclass UserDB(UserSchema):\n    id: int\nclass UserList(BaseModel):\n    users: list[UserPublic] = []\nclass Message(BaseModel):\n    detail: str",
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserDB",
+        "kind": 6,
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "peekOfCode": "class UserDB(UserSchema):\n    id: int\nclass UserList(BaseModel):\n    users: list[UserPublic] = []\nclass Message(BaseModel):\n    detail: str",
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserList",
+        "kind": 6,
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "peekOfCode": "class UserList(BaseModel):\n    users: list[UserPublic] = []\nclass Message(BaseModel):\n    detail: str",
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "Message",
+        "kind": 6,
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "peekOfCode": "class Message(BaseModel):\n    detail: str",
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 2,
+        "importPath": "tests.conftest",
+        "description": "tests.conftest",
+        "peekOfCode": "def app():\n    return create_app()\n@pytest.fixture\ndef client(app):\n    return TestClient(app)",
+        "detail": "tests.conftest",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 2,
+        "importPath": "tests.conftest",
+        "description": "tests.conftest",
+        "peekOfCode": "def client(app):\n    return TestClient(app)",
+        "detail": "tests.conftest",
         "documentation": {}
     },
     {
@@ -46,7 +199,79 @@
         "kind": 2,
         "importPath": "tests.test_app",
         "description": "tests.test_app",
-        "peekOfCode": "def test_root_deve_retornar_200_e_ola_mundo():\n    client = TestClient(app)\n    response = client.get('/')\n    assert response.status_code == 200\n    assert response.json() == {'message': 'Olá Mundo!'}",
+        "peekOfCode": "def test_root_deve_retornar_200_e_ola_mundo(client):\n    response = client.get('/')\n    assert response.status_code == 200\n    assert response.json() == {'message': 'Olá Mundo!'}\ndef test_create_user(client):\n    response = client.post(\n        '/users/',\n        json=fake_user,\n    )\n    assert response.status_code == 201",
+        "detail": "tests.test_app",
+        "documentation": {}
+    },
+    {
+        "label": "test_create_user",
+        "kind": 2,
+        "importPath": "tests.test_app",
+        "description": "tests.test_app",
+        "peekOfCode": "def test_create_user(client):\n    response = client.post(\n        '/users/',\n        json=fake_user,\n    )\n    assert response.status_code == 201\n    assert response.json() == fake_user_with_id\ndef test_read_users(client):\n    response = client.get('/users/')\n    assert response.status_code == 200",
+        "detail": "tests.test_app",
+        "documentation": {}
+    },
+    {
+        "label": "test_read_users",
+        "kind": 2,
+        "importPath": "tests.test_app",
+        "description": "tests.test_app",
+        "peekOfCode": "def test_read_users(client):\n    response = client.get('/users/')\n    assert response.status_code == 200\n    assert response.json() == {'users': []}\n    client.post(\n        '/users/',\n        json=fake_user,\n    )\n    response = client.get('/users/')\n    assert response.status_code == 200",
+        "detail": "tests.test_app",
+        "documentation": {}
+    },
+    {
+        "label": "test_update_user",
+        "kind": 2,
+        "importPath": "tests.test_app",
+        "description": "tests.test_app",
+        "peekOfCode": "def test_update_user(client):\n    response = client.post(\n        '/users/',\n        json=fake_user,\n    )\n    assert response.status_code == 201\n    assert response.json() == {\n        'id': 1,\n        'username': 'alice',\n        'email': 'alice@example.com',",
+        "detail": "tests.test_app",
+        "documentation": {}
+    },
+    {
+        "label": "test_delete_user",
+        "kind": 2,
+        "importPath": "tests.test_app",
+        "description": "tests.test_app",
+        "peekOfCode": "def test_delete_user(client):\n    response = client.post(\n        '/users/',\n        json=fake_user,\n    )\n    assert response.status_code == 201\n    response = client.delete('/users/1')\n    assert response.status_code == 200\n    assert response.json() == {'detail': 'User deleted'}\n    response = client.get('/users/')",
+        "detail": "tests.test_app",
+        "documentation": {}
+    },
+    {
+        "label": "test_should_return_404_when_updating_invalid_id",
+        "kind": 2,
+        "importPath": "tests.test_app",
+        "description": "tests.test_app",
+        "peekOfCode": "def test_should_return_404_when_updating_invalid_id(client):\n    response = client.put('/users/1', json={'username': 'bob'})\n    assert response.status_code == 404\n    assert response.json() == {'detail': 'User not found'}\ndef test_should_return_404_when_deleting_invalid_id(client):\n    response = client.delete('/users/1')\n    assert response.status_code == 404\n    assert response.json() == {'detail': 'User not found'}",
+        "detail": "tests.test_app",
+        "documentation": {}
+    },
+    {
+        "label": "test_should_return_404_when_deleting_invalid_id",
+        "kind": 2,
+        "importPath": "tests.test_app",
+        "description": "tests.test_app",
+        "peekOfCode": "def test_should_return_404_when_deleting_invalid_id(client):\n    response = client.delete('/users/1')\n    assert response.status_code == 404\n    assert response.json() == {'detail': 'User not found'}",
+        "detail": "tests.test_app",
+        "documentation": {}
+    },
+    {
+        "label": "fake_user",
+        "kind": 5,
+        "importPath": "tests.test_app",
+        "description": "tests.test_app",
+        "peekOfCode": "fake_user = {\n    'username': 'alice',\n    'email': 'alice@example.com',\n    'password': 'secret',\n}\nfake_user_with_id = {\n    'id': 1,\n    'username': 'alice',\n    'email': 'alice@example.com',\n}",
+        "detail": "tests.test_app",
+        "documentation": {}
+    },
+    {
+        "label": "fake_user_with_id",
+        "kind": 5,
+        "importPath": "tests.test_app",
+        "description": "tests.test_app",
+        "peekOfCode": "fake_user_with_id = {\n    'id': 1,\n    'username': 'alice',\n    'email': 'alice@example.com',\n}\ndef test_root_deve_retornar_200_e_ola_mundo(client):\n    response = client.get('/')\n    assert response.status_code == 200\n    assert response.json() == {'message': 'Olá Mundo!'}\ndef test_create_user(client):",
         "detail": "tests.test_app",
         "documentation": {}
     }

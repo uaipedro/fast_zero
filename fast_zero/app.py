@@ -17,8 +17,11 @@ from fast_zero.security import (
     get_password_hash,
 )
 from fast_zero.security import verify_password
+from fast_zero.routes import static
 
 app = FastAPI()
+
+app.include_router(static.router)
 
 
 @app.get('/')

@@ -1,5 +1,29 @@
 [
     {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Header",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "Depends",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -45,6 +69,54 @@
         "description": "fastapi",
         "isExtraImport": true,
         "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTMLResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "Jinja2Templates",
+        "importPath": "fastapi.templating",
+        "description": "fastapi.templating",
+        "isExtraImport": true,
+        "detail": "fastapi.templating",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
         "documentation": {}
     },
     {
@@ -385,11 +457,11 @@
         "documentation": {}
     },
     {
-        "label": "Settings",
-        "importPath": "fast_zero.settings",
-        "description": "fast_zero.settings",
+        "label": "static",
+        "importPath": "fast_zero.routes",
+        "description": "fast_zero.routes",
         "isExtraImport": true,
-        "detail": "fast_zero.settings",
+        "detail": "fast_zero.routes",
         "documentation": {}
     },
     {
@@ -401,27 +473,11 @@
         "documentation": {}
     },
     {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
+        "label": "Settings",
+        "importPath": "fast_zero.settings",
+        "description": "fast_zero.settings",
         "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Sequence",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Union",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
+        "detail": "fast_zero.settings",
         "documentation": {}
     },
     {
@@ -562,6 +618,33 @@
         "documentation": {}
     },
     {
+        "label": "index",
+        "kind": 2,
+        "importPath": "fast_zero.routes.static",
+        "description": "fast_zero.routes.static",
+        "peekOfCode": "def index(request: Request, hx_request: Optional[str] = Header(None)):\n    books = [\n        {'title': 'The Great Gatsby', 'author': 'F. Scott Fitzgerald'},\n        {'title': 'The Trial', 'author': 'Franz Kafka'},\n        {'title': 'The Stranger', 'author': 'Albert Camus'},\n    ]\n    context = {'request': request, 'books': books}\n    if hx_request:\n        return templates.TemplateResponse('list.html', context)\n    return templates.TemplateResponse('index.html', context)",
+        "detail": "fast_zero.routes.static",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "fast_zero.routes.static",
+        "description": "fast_zero.routes.static",
+        "peekOfCode": "router = APIRouter(prefix='/static', tags=['static'])\ntemplates = Jinja2Templates(directory='fast_zero/templates')\n@router.get('/', response_class=HTMLResponse)\ndef index(request: Request, hx_request: Optional[str] = Header(None)):\n    books = [\n        {'title': 'The Great Gatsby', 'author': 'F. Scott Fitzgerald'},\n        {'title': 'The Trial', 'author': 'Franz Kafka'},\n        {'title': 'The Stranger', 'author': 'Albert Camus'},\n    ]\n    context = {'request': request, 'books': books}",
+        "detail": "fast_zero.routes.static",
+        "documentation": {}
+    },
+    {
+        "label": "templates",
+        "kind": 5,
+        "importPath": "fast_zero.routes.static",
+        "description": "fast_zero.routes.static",
+        "peekOfCode": "templates = Jinja2Templates(directory='fast_zero/templates')\n@router.get('/', response_class=HTMLResponse)\ndef index(request: Request, hx_request: Optional[str] = Header(None)):\n    books = [\n        {'title': 'The Great Gatsby', 'author': 'F. Scott Fitzgerald'},\n        {'title': 'The Trial', 'author': 'Franz Kafka'},\n        {'title': 'The Stranger', 'author': 'Albert Camus'},\n    ]\n    context = {'request': request, 'books': books}\n    if hx_request:",
+        "detail": "fast_zero.routes.static",
+        "documentation": {}
+    },
+    {
         "label": "read_root",
         "kind": 2,
         "importPath": "fast_zero.app",
@@ -620,7 +703,7 @@
         "kind": 5,
         "importPath": "fast_zero.app",
         "description": "fast_zero.app",
-        "peekOfCode": "app = FastAPI()\n@app.get('/')\ndef read_root():\n    return {'message': 'Olá Mundo!'}\ndatabase = []  # database in memory\n@app.post('/users/', status_code=201, response_model=UserPublic)\ndef create_user(user: UserSchema, session: Session = Depends(get_session)):\n    db_user = session.scalar(\n        select(User).where(User.username == user.username)\n    )",
+        "peekOfCode": "app = FastAPI()\napp.include_router(static.router)\n@app.get('/')\ndef read_root():\n    return {'message': 'Olá Mundo!'}\ndatabase = []  # database in memory\n@app.post('/users/', status_code=201, response_model=UserPublic)\ndef create_user(user: UserSchema, session: Session = Depends(get_session)):\n    db_user = session.scalar(\n        select(User).where(User.username == user.username)",
         "detail": "fast_zero.app",
         "documentation": {}
     },

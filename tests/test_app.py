@@ -36,8 +36,12 @@ def test_read_users(client, user):
     assert response.json() == {'users': [user_schema]}
 
 
-def test_update_user(client, user):
-    response = client.put('/users/1', json={'username': 'bob'})
+def test_update_user(client, user, token):
+    response = client.put(
+        '/users/1',
+        headers={'Authorization': f'Bearer {token}'},
+        json={'username': 'bob'},
+    )
 
     assert response.status_code == 200
     assert response.json() == {
@@ -47,8 +51,11 @@ def test_update_user(client, user):
     }
 
 
-def test_delete_user(client, user):
-    response = client.delete('/users/1')
+def test_delete_user(client, user, token):
+    response = client.delete(
+        '/users/1',
+        headers={'Authorization': f'Bearer {token}'},
+    )
 
     assert response.status_code == 200
     assert response.json() == {'detail': 'User deleted'}
@@ -59,18 +66,23 @@ def test_delete_user(client, user):
     assert response.json() == {'users': []}
 
 
-def test_should_return_404_when_updating_invalid_id(client):
-    response = client.put('/users/1', json={'username': 'bob'})
+def test_should_return_400_when_updating_other_user(client, user, token):
+    response = client.put(
+        '/users/5',
+        headers={'Authorization': f'Bearer {token}'},
+        json={'username': 'bob'},
+    )
 
-    assert response.status_code == 404
-    assert response.json() == {'detail': 'User not found'}
+    assert response.status_code == 400
 
 
-def test_should_return_404_when_deleting_invalid_id(client):
-    response = client.delete('/users/1')
+def test_should_return_400_when_deleting_other_user(client, user, token):
+    response = client.delete(
+        '/users/5',
+        headers={'Authorization': f'Bearer {token}'},
+    )
 
-    assert response.status_code == 404
-    assert response.json() == {'detail': 'User not found'}
+    assert response.status_code == 400
 
 
 def test_should_return_400_when_creating_user_with_existing_username(

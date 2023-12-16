@@ -11,7 +11,11 @@ from fast_zero.schemas import (
     UserPublic,
     UserSchema,
 )
-from fast_zero.security import create_access_token, get_password_hash
+from fast_zero.security import (
+    create_access_token,
+    get_current_user,
+    get_password_hash,
+)
 from fast_zero.security import verify_password
 
 app = FastAPI()
@@ -58,30 +62,35 @@ def list_users(
 
 @app.put('/users/{user_id}', response_model=UserPublic)
 def update_user(
-    user_id: int, user: UserPartial, session: Session = Depends(get_session)
+    user_id: int,
+    user: UserPartial,
+    session: Session = Depends(get_session),
+    current_user=Depends(get_current_user),
 ):
-    db_user = session.scalar(select(User).where(User.id == user_id))
-    if db_user is None:
-        raise HTTPException(status_code=404, detail='User not found')
+    if current_user.id != user_id:
+        raise HTTPException(status_code=400, detail='Not enough permissions')
 
     for field, value in user.model_dump(exclude_unset=True).items():
         if field == 'password':
             value = get_password_hash(value)
-        setattr(db_user, field, value)
+        setattr(current_user, field, value)
 
     session.commit()
-    session.refresh(db_user)
+    session.refresh(current_user)
 
-    return db_user
+    return current_user
 
 
 @app.delete('/users/{user_id}')
-def delete_user(user_id: int, session: Session = Depends(get_session)):
-    db_user = session.scalar(select(User).where(User.id == user_id))
-    if db_user is None:
-        raise HTTPException(status_code=404, detail='User not found')
+def delete_user(
+    user_id: int,
+    session: Session = Depends(get_session),
+    current_user=Depends(get_current_user),
+):
+    if current_user.id != user_id:
+        raise HTTPException(status_code=400, detail='Not enough permissions')
 
-    session.delete(db_user)
+    session.delete(current_user)
     session.commit()
 
     return {'detail': 'User deleted'}

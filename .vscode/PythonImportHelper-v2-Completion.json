@@ -24,6 +24,14 @@
         "documentation": {}
     },
     {
+        "label": "OAuth2PasswordRequestForm",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
+        "isExtraImport": true,
+        "detail": "fastapi.security",
+        "documentation": {}
+    },
+    {
         "label": "sqlalchemy",
         "kind": 6,
         "isExtraImport": true,
@@ -201,6 +209,14 @@
         "documentation": {}
     },
     {
+        "label": "Token",
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "isExtraImport": true,
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
         "label": "UserList",
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
@@ -238,6 +254,54 @@
         "description": "fast_zero.schemas",
         "isExtraImport": true,
         "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "create_access_token",
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "isExtraImport": true,
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
+        "label": "get_password_hash",
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "isExtraImport": true,
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
+        "label": "verify_password",
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "isExtraImport": true,
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
+        "label": "get_password_hash",
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "isExtraImport": true,
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "isExtraImport": true,
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
+        "label": "create_access_token",
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "isExtraImport": true,
+        "detail": "fast_zero.security",
         "documentation": {}
     },
     {
@@ -302,6 +366,46 @@
         "description": "pydantic",
         "isExtraImport": true,
         "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "jwt",
+        "importPath": "jose",
+        "description": "jose",
+        "isExtraImport": true,
+        "detail": "jose",
+        "documentation": {}
+    },
+    {
+        "label": "jwt",
+        "importPath": "jose",
+        "description": "jose",
+        "isExtraImport": true,
+        "detail": "jose",
+        "documentation": {}
+    },
+    {
+        "label": "CryptContext",
+        "importPath": "passlib.context",
+        "description": "passlib.context",
+        "isExtraImport": true,
+        "detail": "passlib.context",
         "documentation": {}
     },
     {
@@ -383,7 +487,7 @@
         "kind": 2,
         "importPath": "fast_zero.app",
         "description": "fast_zero.app",
-        "peekOfCode": "def create_user(user: UserSchema, session: Session = Depends(get_session)):\n    db_user = session.scalar(\n        select(User).where(User.username == user.username)\n    )\n    if db_user:\n        raise HTTPException(\n            status_code=400, detail='Username already registered'\n        )\n    db_user = User(\n        username=user.username, password=user.password, email=user.email",
+        "peekOfCode": "def create_user(user: UserSchema, session: Session = Depends(get_session)):\n    db_user = session.scalar(\n        select(User).where(User.username == user.username)\n    )\n    if db_user:\n        raise HTTPException(\n            status_code=400, detail='Username already registered'\n        )\n    hashed_password = get_password_hash(user.password)\n    db_user = User(",
         "detail": "fast_zero.app",
         "documentation": {}
     },
@@ -401,7 +505,7 @@
         "kind": 2,
         "importPath": "fast_zero.app",
         "description": "fast_zero.app",
-        "peekOfCode": "def update_user(\n    user_id: int, user: UserPartial, session: Session = Depends(get_session)\n):\n    db_user = session.scalar(select(User).where(User.id == user_id))\n    if db_user is None:\n        raise HTTPException(status_code=404, detail='User not found')\n    for field, value in user.model_dump(exclude_unset=True).items():\n        setattr(db_user, field, value)\n    session.commit()\n    session.refresh(db_user)",
+        "peekOfCode": "def update_user(\n    user_id: int, user: UserPartial, session: Session = Depends(get_session)\n):\n    db_user = session.scalar(select(User).where(User.id == user_id))\n    if db_user is None:\n        raise HTTPException(status_code=404, detail='User not found')\n    for field, value in user.model_dump(exclude_unset=True).items():\n        if field == 'password':\n            value = get_password_hash(value)\n        setattr(db_user, field, value)",
         "detail": "fast_zero.app",
         "documentation": {}
     },
@@ -410,7 +514,16 @@
         "kind": 2,
         "importPath": "fast_zero.app",
         "description": "fast_zero.app",
-        "peekOfCode": "def delete_user(user_id: int, session: Session = Depends(get_session)):\n    db_user = session.scalar(select(User).where(User.id == user_id))\n    if db_user is None:\n        raise HTTPException(status_code=404, detail='User not found')\n    session.delete(db_user)\n    session.commit()\n    return {'detail': 'User deleted'}",
+        "peekOfCode": "def delete_user(user_id: int, session: Session = Depends(get_session)):\n    db_user = session.scalar(select(User).where(User.id == user_id))\n    if db_user is None:\n        raise HTTPException(status_code=404, detail='User not found')\n    session.delete(db_user)\n    session.commit()\n    return {'detail': 'User deleted'}\n@app.post('/token', response_model=Token)\ndef login_for_access_token(\n    form_data: OAuth2PasswordRequestForm = Depends(),",
+        "detail": "fast_zero.app",
+        "documentation": {}
+    },
+    {
+        "label": "login_for_access_token",
+        "kind": 2,
+        "importPath": "fast_zero.app",
+        "description": "fast_zero.app",
+        "peekOfCode": "def login_for_access_token(\n    form_data: OAuth2PasswordRequestForm = Depends(),\n    session: Session = Depends(get_session),\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:\n        raise HTTPException(\n            status_code=400, detail='Incorrect email or password'\n        )\n    if not verify_password(form_data.password, user.password):",
         "detail": "fast_zero.app",
         "documentation": {}
     },
@@ -500,7 +613,7 @@
         "kind": 6,
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
-        "peekOfCode": "class UserDB(UserSchema):\n    id: int\nclass UserList(BaseModel):\n    users: list[UserPublic] = []\nclass Message(BaseModel):\n    detail: str",
+        "peekOfCode": "class UserDB(UserSchema):\n    id: int\nclass UserList(BaseModel):\n    users: list[UserPublic] = []\nclass Message(BaseModel):\n    detail: str\nclass Token(BaseModel):\n    access_token: str\n    token_type: str",
         "detail": "fast_zero.schemas",
         "documentation": {}
     },
@@ -509,7 +622,7 @@
         "kind": 6,
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
-        "peekOfCode": "class UserList(BaseModel):\n    users: list[UserPublic] = []\nclass Message(BaseModel):\n    detail: str",
+        "peekOfCode": "class UserList(BaseModel):\n    users: list[UserPublic] = []\nclass Message(BaseModel):\n    detail: str\nclass Token(BaseModel):\n    access_token: str\n    token_type: str",
         "detail": "fast_zero.schemas",
         "documentation": {}
     },
@@ -518,8 +631,80 @@
         "kind": 6,
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
-        "peekOfCode": "class Message(BaseModel):\n    detail: str",
+        "peekOfCode": "class Message(BaseModel):\n    detail: str\nclass Token(BaseModel):\n    access_token: str\n    token_type: str",
         "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "Token",
+        "kind": 6,
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "peekOfCode": "class Token(BaseModel):\n    access_token: str\n    token_type: str",
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "create_access_token",
+        "kind": 2,
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "peekOfCode": "def create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\n    return encoded_jwt\ndef get_password_hash(password: str):\n    return pwd_context.hash(password)\ndef verify_password(plain_password: str, hashed_password: str):\n    return pwd_context.verify(plain_password, hashed_password)",
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
+        "label": "get_password_hash",
+        "kind": 2,
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "peekOfCode": "def get_password_hash(password: str):\n    return pwd_context.hash(password)\ndef verify_password(plain_password: str, hashed_password: str):\n    return pwd_context.verify(plain_password, hashed_password)",
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
+        "label": "verify_password",
+        "kind": 2,
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "peekOfCode": "def verify_password(plain_password: str, hashed_password: str):\n    return pwd_context.verify(plain_password, hashed_password)",
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "peekOfCode": "SECRET_KEY = 'your-secret'\nALGORITHM = 'HS256'\nACCESS_TOKEN_EXPIRE_MINUTES = 30\npwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\n    return encoded_jwt",
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
+        "label": "ALGORITHM",
+        "kind": 5,
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "peekOfCode": "ALGORITHM = 'HS256'\nACCESS_TOKEN_EXPIRE_MINUTES = 30\npwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\n    return encoded_jwt\ndef get_password_hash(password: str):",
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
+        "label": "ACCESS_TOKEN_EXPIRE_MINUTES",
+        "kind": 5,
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "peekOfCode": "ACCESS_TOKEN_EXPIRE_MINUTES = 30\npwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\n    return encoded_jwt\ndef get_password_hash(password: str):\n    return pwd_context.hash(password)",
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
+        "label": "pwd_context",
+        "kind": 5,
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "peekOfCode": "pwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\n    return encoded_jwt\ndef get_password_hash(password: str):\n    return pwd_context.hash(password)\ndef verify_password(plain_password: str, hashed_password: str):",
+        "detail": "fast_zero.security",
         "documentation": {}
     },
     {
@@ -599,7 +784,7 @@
         "kind": 2,
         "importPath": "tests.conftest",
         "description": "tests.conftest",
-        "peekOfCode": "def client(session):\n    def get_session_override():\n        return session\n    with TestClient(app) as client:\n        app.dependency_overrides[get_session] = get_session_override\n        yield client\n    app.dependency_overrides.clear()\n@pytest.fixture\ndef user(session):\n    user = User(username='Teste', email='teste@test.com', password='testtest')",
+        "peekOfCode": "def client(session):\n    def get_session_override():\n        return session\n    with TestClient(app) as client:\n        app.dependency_overrides[get_session] = get_session_override\n        yield client\n    app.dependency_overrides.clear()\n@pytest.fixture\ndef user(session):\n    user = User(",
         "detail": "tests.conftest",
         "documentation": {}
     },
@@ -608,7 +793,7 @@
         "kind": 2,
         "importPath": "tests.conftest",
         "description": "tests.conftest",
-        "peekOfCode": "def user(session):\n    user = User(username='Teste', email='teste@test.com', password='testtest')\n    session.add(user)\n    session.commit()\n    session.refresh(user)\n    return user",
+        "peekOfCode": "def user(session):\n    user = User(\n        username='Teste',\n        email='teste@test.com',\n        password=get_password_hash('testtest'),\n    )\n    session.add(user)\n    session.commit()\n    session.refresh(user)\n    user.clean_password = 'testtest'",
         "detail": "tests.conftest",
         "documentation": {}
     },
@@ -685,6 +870,15 @@
         "documentation": {}
     },
     {
+        "label": "test_get_token",
+        "kind": 2,
+        "importPath": "tests.test_app",
+        "description": "tests.test_app",
+        "peekOfCode": "def test_get_token(client, user):\n    response = client.post(\n        '/token',\n        data={'username': user.email, 'password': user.clean_password},\n    )\n    token = response.json()\n    assert response.status_code == 200\n    assert 'access_token' in token\n    assert 'token_type' in token",
+        "detail": "tests.test_app",
+        "documentation": {}
+    },
+    {
         "label": "fake_user",
         "kind": 5,
         "importPath": "tests.test_app",
@@ -718,6 +912,15 @@
         "description": "tests.test_db",
         "peekOfCode": "def test_create_user(session):\n    new_user = User(username='alice', password='secret', email='teste@test')\n    session.add(new_user)\n    session.commit()\n    user = session.scalar(select(User).where(User.username == 'alice'))\n    assert user.username == 'alice'\n    assert user.password == 'secret'\n    assert user.email == 'teste@test'",
         "detail": "tests.test_db",
+        "documentation": {}
+    },
+    {
+        "label": "test_jwt",
+        "kind": 2,
+        "importPath": "tests.test_security",
+        "description": "tests.test_security",
+        "peekOfCode": "def test_jwt():\n    data = {'test': 'test'}\n    token = create_access_token(data)\n    decoded = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])\n    assert decoded['test'] == 'test'\n    assert decoded['exp']",
+        "detail": "tests.test_security",
         "documentation": {}
     }
 ]

@@ -87,3 +87,15 @@ def test_should_return_400_when_creating_user_with_existing_username(
 
     assert response.status_code == 400
     assert response.json() == {'detail': 'Username already registered'}
+
+
+def test_get_token(client, user):
+    response = client.post(
+        '/token',
+        data={'username': user.email, 'password': user.clean_password},
+    )
+    token = response.json()
+
+    assert response.status_code == 200
+    assert 'access_token' in token
+    assert 'token_type' in token

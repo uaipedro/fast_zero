@@ -723,6 +723,14 @@
         "documentation": {}
     },
     {
+        "label": "freeze_time",
+        "importPath": "freezegun",
+        "description": "freezegun",
+        "isExtraImport": true,
+        "detail": "freezegun",
+        "documentation": {}
+    },
+    {
         "label": "login_for_access_token",
         "kind": 2,
         "importPath": "fast_zero.routes.auth",
@@ -1141,7 +1149,34 @@
         "kind": 2,
         "importPath": "tests.test_auth",
         "description": "tests.test_auth",
-        "peekOfCode": "def test_get_token(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.email, 'password': user.clean_password},\n    )\n    token = response.json()\n    assert response.status_code == 200\n    assert 'access_token' in token\n    assert 'token_type' in token",
+        "peekOfCode": "def test_get_token(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.email, 'password': user.clean_password},\n    )\n    token = response.json()\n    assert response.status_code == 200\n    assert 'access_token' in token\n    assert 'token_type' in token\ndef test_token_expired_after_time(client, user):",
+        "detail": "tests.test_auth",
+        "documentation": {}
+    },
+    {
+        "label": "test_token_expired_after_time",
+        "kind": 2,
+        "importPath": "tests.test_auth",
+        "description": "tests.test_auth",
+        "peekOfCode": "def test_token_expired_after_time(client, user):\n    with freeze_time('2024-01-01 12:00:00'):\n        response = client.post(\n            '/auth/token',\n            data={'username': user.email, 'password': user.clean_password},\n        )\n        assert response.status_code == 200\n        token = response.json()['access_token']\n    with freeze_time('2024-01-01 12:31:00'):\n        response = client.put(",
+        "detail": "tests.test_auth",
+        "documentation": {}
+    },
+    {
+        "label": "test_token_inexistent_user",
+        "kind": 2,
+        "importPath": "tests.test_auth",
+        "description": "tests.test_auth",
+        "peekOfCode": "def test_token_inexistent_user(client):\n    response = client.post(\n        '/auth/token',\n        data={'username': 'no_username@domain.com', 'password': 'no_password'},\n    )\n    assert response.status_code == 400\n    assert response.json() == {'detail': 'Incorrect email or password'}\ndef test_token_wrong_password(client, user):\n    response = client.post(\n        '/auth/token',",
+        "detail": "tests.test_auth",
+        "documentation": {}
+    },
+    {
+        "label": "test_token_wrong_password",
+        "kind": 2,
+        "importPath": "tests.test_auth",
+        "description": "tests.test_auth",
+        "peekOfCode": "def test_token_wrong_password(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.email, 'password': 'wrongpassword'},\n    )\n    assert response.status_code == 400\n    assert response.json() == {'detail': 'Incorrect email or password'}",
         "detail": "tests.test_auth",
         "documentation": {}
     },

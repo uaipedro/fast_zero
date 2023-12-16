@@ -1,19 +1,17 @@
 from fast_zero.schemas import UserPublic
 
 
-fake_user = {
-    'username': 'alice',
-    'email': 'alice@example.com',
-    'password': 'secret',
-}
-fake_user_with_id = {
-    'id': 1,
-    'username': 'alice',
-    'email': 'alice@example.com',
-}
-
-
 def test_create_user(client):
+    fake_user = {
+        'username': 'alice',
+        'email': 'alice@example.com',
+        'password': 'secret',
+    }
+    fake_user_with_id = {
+        'id': 1,
+        'username': 'alice',
+        'email': 'alice@example.com',
+    }
     response = client.post(
         '/users/',
         json=fake_user,
@@ -31,22 +29,22 @@ def test_read_users(client, user):
 
 def test_update_user(client, user, token):
     response = client.put(
-        '/users/1',
+        f'/users/{user.id}',
         headers={'Authorization': f'Bearer {token}'},
         json={'username': 'bob'},
     )
 
-    assert response.status_code == 200
     assert response.json() == {
-        'id': 1,
+        'id': user.id,
         'username': 'bob',
-        'email': 'teste@test.com',
+        'email': user.email,
     }
+    assert response.status_code == 200
 
 
 def test_delete_user(client, user, token):
     response = client.delete(
-        '/users/1',
+        f'/users/{user.id}',
         headers={'Authorization': f'Bearer {token}'},
     )
 
@@ -59,9 +57,9 @@ def test_delete_user(client, user, token):
     assert response.json() == {'users': []}
 
 
-def test_should_return_400_when_updating_other_user(client, user, token):
+def test_should_return_400_when_updating_other_user(client, other_user, token):
     response = client.put(
-        '/users/5',
+        f'/users/{other_user.id}',
         headers={'Authorization': f'Bearer {token}'},
         json={'username': 'bob'},
     )
@@ -69,9 +67,9 @@ def test_should_return_400_when_updating_other_user(client, user, token):
     assert response.status_code == 400
 
 
-def test_should_return_400_when_deleting_other_user(client, user, token):
+def test_should_return_400_when_deleting_other_user(client, other_user, token):
     response = client.delete(
-        '/users/5',
+        f'/users/{other_user.id}',
         headers={'Authorization': f'Bearer {token}'},
     )
 
@@ -84,7 +82,7 @@ def test_should_return_400_when_creating_user_with_existing_username(
     response = client.post(
         '/users/',
         json={
-            'username': 'Teste',
+            'username': user.username,
             'email': 'testando@outroemail.com',
             'password': 'outro_password',
         },

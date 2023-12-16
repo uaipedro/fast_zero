@@ -689,6 +689,15 @@
         "documentation": {}
     },
     {
+        "label": "factory",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "factory",
+        "description": "factory",
+        "detail": "factory",
+        "documentation": {}
+    },
+    {
         "label": "pytest",
         "kind": 6,
         "isExtraImport": true,
@@ -1065,6 +1074,15 @@
         "documentation": {}
     },
     {
+        "label": "UserFactory",
+        "kind": 6,
+        "importPath": "tests.conftest",
+        "description": "tests.conftest",
+        "peekOfCode": "class UserFactory(factory.Factory):\n    class Meta:\n        model = User\n    id = factory.Sequence(lambda n: n)\n    username = factory.LazyAttribute(lambda obj: f'test{obj.id}')\n    email = factory.LazyAttribute(lambda obj: f'{obj.username}@test.com')\n    password = factory.LazyAttribute(lambda obj: f'{obj.username}@example.com')\n@pytest.fixture\ndef session():\n    engine = create_engine(",
+        "detail": "tests.conftest",
+        "documentation": {}
+    },
+    {
         "label": "session",
         "kind": 2,
         "importPath": "tests.conftest",
@@ -1078,7 +1096,7 @@
         "kind": 2,
         "importPath": "tests.conftest",
         "description": "tests.conftest",
-        "peekOfCode": "def client(session):\n    def get_session_override():\n        return session\n    with TestClient(app) as client:\n        app.dependency_overrides[get_session] = get_session_override\n        yield client\n    app.dependency_overrides.clear()\n@pytest.fixture\ndef user(session):\n    user = User(",
+        "peekOfCode": "def client(session):\n    def get_session_override():\n        return session\n    with TestClient(app) as client:\n        app.dependency_overrides[get_session] = get_session_override\n        yield client\n    app.dependency_overrides.clear()\n@pytest.fixture\ndef user(session):\n    password = 'testtest'",
         "detail": "tests.conftest",
         "documentation": {}
     },
@@ -1087,7 +1105,16 @@
         "kind": 2,
         "importPath": "tests.conftest",
         "description": "tests.conftest",
-        "peekOfCode": "def user(session):\n    user = User(\n        username='Teste',\n        email='teste@test.com',\n        password=get_password_hash('testtest'),\n    )\n    session.add(user)\n    session.commit()\n    session.refresh(user)\n    user.clean_password = 'testtest'",
+        "peekOfCode": "def user(session):\n    password = 'testtest'\n    user = UserFactory(password=get_password_hash(password))\n    session.add(user)\n    session.commit()\n    session.refresh(user)\n    user.clean_password = 'testtest'\n    return user\n@pytest.fixture\ndef other_user(session):",
+        "detail": "tests.conftest",
+        "documentation": {}
+    },
+    {
+        "label": "other_user",
+        "kind": 2,
+        "importPath": "tests.conftest",
+        "description": "tests.conftest",
+        "peekOfCode": "def other_user(session):\n    password = 'testtest'\n    user = UserFactory(password=get_password_hash(password))\n    session.add(user)\n    session.commit()\n    session.refresh(user)\n    user.clean_password = 'testtest'\n    return user\n@pytest.fixture\ndef token(client, user):",
         "detail": "tests.conftest",
         "documentation": {}
     },
@@ -1159,7 +1186,7 @@
         "kind": 2,
         "importPath": "tests.test_users",
         "description": "tests.test_users",
-        "peekOfCode": "def test_create_user(client):\n    response = client.post(\n        '/users/',\n        json=fake_user,\n    )\n    assert response.status_code == 201\n    assert response.json() == fake_user_with_id\ndef test_read_users(client, user):\n    user_schema = UserPublic.model_validate(user).model_dump()\n    response = client.get('/users/')",
+        "peekOfCode": "def test_create_user(client):\n    fake_user = {\n        'username': 'alice',\n        'email': 'alice@example.com',\n        'password': 'secret',\n    }\n    fake_user_with_id = {\n        'id': 1,\n        'username': 'alice',\n        'email': 'alice@example.com',",
         "detail": "tests.test_users",
         "documentation": {}
     },
@@ -1168,7 +1195,7 @@
         "kind": 2,
         "importPath": "tests.test_users",
         "description": "tests.test_users",
-        "peekOfCode": "def test_read_users(client, user):\n    user_schema = UserPublic.model_validate(user).model_dump()\n    response = client.get('/users/')\n    assert response.json() == {'users': [user_schema]}\ndef test_update_user(client, user, token):\n    response = client.put(\n        '/users/1',\n        headers={'Authorization': f'Bearer {token}'},\n        json={'username': 'bob'},\n    )",
+        "peekOfCode": "def test_read_users(client, user):\n    user_schema = UserPublic.model_validate(user).model_dump()\n    response = client.get('/users/')\n    assert response.json() == {'users': [user_schema]}\ndef test_update_user(client, user, token):\n    response = client.put(\n        f'/users/{user.id}',\n        headers={'Authorization': f'Bearer {token}'},\n        json={'username': 'bob'},\n    )",
         "detail": "tests.test_users",
         "documentation": {}
     },
@@ -1177,7 +1204,7 @@
         "kind": 2,
         "importPath": "tests.test_users",
         "description": "tests.test_users",
-        "peekOfCode": "def test_update_user(client, user, token):\n    response = client.put(\n        '/users/1',\n        headers={'Authorization': f'Bearer {token}'},\n        json={'username': 'bob'},\n    )\n    assert response.status_code == 200\n    assert response.json() == {\n        'id': 1,\n        'username': 'bob',",
+        "peekOfCode": "def test_update_user(client, user, token):\n    response = client.put(\n        f'/users/{user.id}',\n        headers={'Authorization': f'Bearer {token}'},\n        json={'username': 'bob'},\n    )\n    assert response.json() == {\n        'id': user.id,\n        'username': 'bob',\n        'email': user.email,",
         "detail": "tests.test_users",
         "documentation": {}
     },
@@ -1186,7 +1213,7 @@
         "kind": 2,
         "importPath": "tests.test_users",
         "description": "tests.test_users",
-        "peekOfCode": "def test_delete_user(client, user, token):\n    response = client.delete(\n        '/users/1',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert response.status_code == 200\n    assert response.json() == {'detail': 'User deleted'}\n    response = client.get('/users/')\n    assert response.status_code == 200\n    assert response.json() == {'users': []}",
+        "peekOfCode": "def test_delete_user(client, user, token):\n    response = client.delete(\n        f'/users/{user.id}',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert response.status_code == 200\n    assert response.json() == {'detail': 'User deleted'}\n    response = client.get('/users/')\n    assert response.status_code == 200\n    assert response.json() == {'users': []}",
         "detail": "tests.test_users",
         "documentation": {}
     },
@@ -1195,7 +1222,7 @@
         "kind": 2,
         "importPath": "tests.test_users",
         "description": "tests.test_users",
-        "peekOfCode": "def test_should_return_400_when_updating_other_user(client, user, token):\n    response = client.put(\n        '/users/5',\n        headers={'Authorization': f'Bearer {token}'},\n        json={'username': 'bob'},\n    )\n    assert response.status_code == 400\ndef test_should_return_400_when_deleting_other_user(client, user, token):\n    response = client.delete(\n        '/users/5',",
+        "peekOfCode": "def test_should_return_400_when_updating_other_user(client, other_user, token):\n    response = client.put(\n        f'/users/{other_user.id}',\n        headers={'Authorization': f'Bearer {token}'},\n        json={'username': 'bob'},\n    )\n    assert response.status_code == 400\ndef test_should_return_400_when_deleting_other_user(client, other_user, token):\n    response = client.delete(\n        f'/users/{other_user.id}',",
         "detail": "tests.test_users",
         "documentation": {}
     },
@@ -1204,7 +1231,7 @@
         "kind": 2,
         "importPath": "tests.test_users",
         "description": "tests.test_users",
-        "peekOfCode": "def test_should_return_400_when_deleting_other_user(client, user, token):\n    response = client.delete(\n        '/users/5',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert response.status_code == 400\ndef test_should_return_400_when_creating_user_with_existing_username(\n    client, user\n):\n    response = client.post(",
+        "peekOfCode": "def test_should_return_400_when_deleting_other_user(client, other_user, token):\n    response = client.delete(\n        f'/users/{other_user.id}',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert response.status_code == 400\ndef test_should_return_400_when_creating_user_with_existing_username(\n    client, user\n):\n    response = client.post(",
         "detail": "tests.test_users",
         "documentation": {}
     },
@@ -1213,25 +1240,7 @@
         "kind": 2,
         "importPath": "tests.test_users",
         "description": "tests.test_users",
-        "peekOfCode": "def test_should_return_400_when_creating_user_with_existing_username(\n    client, user\n):\n    response = client.post(\n        '/users/',\n        json={\n            'username': 'Teste',\n            'email': 'testando@outroemail.com',\n            'password': 'outro_password',\n        },",
-        "detail": "tests.test_users",
-        "documentation": {}
-    },
-    {
-        "label": "fake_user",
-        "kind": 5,
-        "importPath": "tests.test_users",
-        "description": "tests.test_users",
-        "peekOfCode": "fake_user = {\n    'username': 'alice',\n    'email': 'alice@example.com',\n    'password': 'secret',\n}\nfake_user_with_id = {\n    'id': 1,\n    'username': 'alice',\n    'email': 'alice@example.com',\n}",
-        "detail": "tests.test_users",
-        "documentation": {}
-    },
-    {
-        "label": "fake_user_with_id",
-        "kind": 5,
-        "importPath": "tests.test_users",
-        "description": "tests.test_users",
-        "peekOfCode": "fake_user_with_id = {\n    'id': 1,\n    'username': 'alice',\n    'email': 'alice@example.com',\n}\ndef test_create_user(client):\n    response = client.post(\n        '/users/',\n        json=fake_user,\n    )",
+        "peekOfCode": "def test_should_return_400_when_creating_user_with_existing_username(\n    client, user\n):\n    response = client.post(\n        '/users/',\n        json={\n            'username': user.username,\n            'email': 'testando@outroemail.com',\n            'password': 'outro_password',\n        },",
         "detail": "tests.test_users",
         "documentation": {}
     }

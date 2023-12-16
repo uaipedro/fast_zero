@@ -8,6 +8,30 @@
         "documentation": {}
     },
     {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "Header",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -24,6 +48,14 @@
         "documentation": {}
     },
     {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "Depends",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -32,7 +64,7 @@
         "documentation": {}
     },
     {
-        "label": "FastAPI",
+        "label": "HTTPException",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -40,7 +72,7 @@
         "documentation": {}
     },
     {
-        "label": "HTTPException",
+        "label": "FastAPI",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -72,54 +104,6 @@
         "documentation": {}
     },
     {
-        "label": "HTMLResponse",
-        "importPath": "fastapi.responses",
-        "description": "fastapi.responses",
-        "isExtraImport": true,
-        "detail": "fastapi.responses",
-        "documentation": {}
-    },
-    {
-        "label": "Jinja2Templates",
-        "importPath": "fastapi.templating",
-        "description": "fastapi.templating",
-        "isExtraImport": true,
-        "detail": "fastapi.templating",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Sequence",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Union",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
         "label": "OAuth2PasswordRequestForm",
         "importPath": "fastapi.security",
         "description": "fastapi.security",
@@ -141,6 +125,14 @@
         "isExtraImport": true,
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "select",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
         "detail": "sqlalchemy",
         "documentation": {}
     },
@@ -206,6 +198,14 @@
         "description": "sqlalchemy",
         "isExtraImport": true,
         "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
         "documentation": {}
     },
     {
@@ -294,6 +294,22 @@
         "description": "fast_zero.database",
         "isExtraImport": true,
         "detail": "fast_zero.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_session",
+        "importPath": "fast_zero.database",
+        "description": "fast_zero.database",
+        "isExtraImport": true,
+        "detail": "fast_zero.database",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "isExtraImport": true,
+        "detail": "fast_zero.models",
         "documentation": {}
     },
     {
@@ -409,6 +425,14 @@
         "documentation": {}
     },
     {
+        "label": "verify_password",
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "isExtraImport": true,
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
         "label": "get_current_user",
         "importPath": "fast_zero.security",
         "description": "fast_zero.security",
@@ -425,23 +449,7 @@
         "documentation": {}
     },
     {
-        "label": "verify_password",
-        "importPath": "fast_zero.security",
-        "description": "fast_zero.security",
-        "isExtraImport": true,
-        "detail": "fast_zero.security",
-        "documentation": {}
-    },
-    {
         "label": "get_password_hash",
-        "importPath": "fast_zero.security",
-        "description": "fast_zero.security",
-        "isExtraImport": true,
-        "detail": "fast_zero.security",
-        "documentation": {}
-    },
-    {
-        "label": "SECRET_KEY",
         "importPath": "fast_zero.security",
         "description": "fast_zero.security",
         "isExtraImport": true,
@@ -457,11 +465,99 @@
         "documentation": {}
     },
     {
+        "label": "HTMLResponse",
+        "importPath": "fastapi.responses",
+        "description": "fastapi.responses",
+        "isExtraImport": true,
+        "detail": "fastapi.responses",
+        "documentation": {}
+    },
+    {
+        "label": "Jinja2Templates",
+        "importPath": "fastapi.templating",
+        "description": "fastapi.templating",
+        "isExtraImport": true,
+        "detail": "fastapi.templating",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "static",
         "importPath": "fast_zero.routes",
         "description": "fast_zero.routes",
         "isExtraImport": true,
         "detail": "fast_zero.routes",
+        "documentation": {}
+    },
+    {
+        "label": "users",
+        "importPath": "fast_zero.routes",
+        "description": "fast_zero.routes",
+        "isExtraImport": true,
+        "detail": "fast_zero.routes",
+        "documentation": {}
+    },
+    {
+        "label": "auth",
+        "importPath": "fast_zero.routes",
+        "description": "fast_zero.routes",
+        "isExtraImport": true,
+        "detail": "fast_zero.routes",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "importPath": "fast_zero.settings",
+        "description": "fast_zero.settings",
+        "isExtraImport": true,
+        "detail": "fast_zero.settings",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "importPath": "fast_zero.settings",
+        "description": "fast_zero.settings",
+        "isExtraImport": true,
+        "detail": "fast_zero.settings",
         "documentation": {}
     },
     {
@@ -618,6 +714,24 @@
         "documentation": {}
     },
     {
+        "label": "login_for_access_token",
+        "kind": 2,
+        "importPath": "fast_zero.routes.auth",
+        "description": "fast_zero.routes.auth",
+        "peekOfCode": "def login_for_access_token(\n    form_data: OAuth2PasswordRequestForm = Depends(),\n    session: Session = Depends(get_session),\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:\n        raise HTTPException(\n            status_code=400, detail='Incorrect email or password'\n        )\n    if not verify_password(form_data.password, user.password):",
+        "detail": "fast_zero.routes.auth",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "fast_zero.routes.auth",
+        "description": "fast_zero.routes.auth",
+        "peekOfCode": "router = APIRouter(prefix='/auth', tags=['auth'])\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    form_data: OAuth2PasswordRequestForm = Depends(),\n    session: Session = Depends(get_session),\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:\n        raise HTTPException(\n            status_code=400, detail='Incorrect email or password'",
+        "detail": "fast_zero.routes.auth",
+        "documentation": {}
+    },
+    {
         "label": "index",
         "kind": 2,
         "importPath": "fast_zero.routes.static",
@@ -645,56 +759,74 @@
         "documentation": {}
     },
     {
-        "label": "read_root",
-        "kind": 2,
-        "importPath": "fast_zero.app",
-        "description": "fast_zero.app",
-        "peekOfCode": "def read_root():\n    return {'message': 'Olá Mundo!'}\ndatabase = []  # database in memory\n@app.post('/users/', status_code=201, response_model=UserPublic)\ndef create_user(user: UserSchema, session: Session = Depends(get_session)):\n    db_user = session.scalar(\n        select(User).where(User.username == user.username)\n    )\n    if db_user:\n        raise HTTPException(",
-        "detail": "fast_zero.app",
-        "documentation": {}
-    },
-    {
         "label": "create_user",
         "kind": 2,
-        "importPath": "fast_zero.app",
-        "description": "fast_zero.app",
-        "peekOfCode": "def create_user(user: UserSchema, session: Session = Depends(get_session)):\n    db_user = session.scalar(\n        select(User).where(User.username == user.username)\n    )\n    if db_user:\n        raise HTTPException(\n            status_code=400, detail='Username already registered'\n        )\n    hashed_password = get_password_hash(user.password)\n    db_user = User(",
-        "detail": "fast_zero.app",
+        "importPath": "fast_zero.routes.users",
+        "description": "fast_zero.routes.users",
+        "peekOfCode": "def create_user(user: UserSchema, session: Session):\n    db_user = session.scalar(\n        select(User).where(User.username == user.username)\n    )\n    if db_user:\n        raise HTTPException(\n            status_code=400, detail='Username already registered'\n        )\n    hashed_password = get_password_hash(user.password)\n    db_user = User(",
+        "detail": "fast_zero.routes.users",
         "documentation": {}
     },
     {
         "label": "list_users",
         "kind": 2,
-        "importPath": "fast_zero.app",
-        "description": "fast_zero.app",
-        "peekOfCode": "def list_users(\n    skip: int = 0, limit: int = 100, session: Session = Depends(get_session)\n):\n    users = session.scalars(select(User).offset(skip).limit(limit)).all()\n    return {'users': users}\n@app.put('/users/{user_id}', response_model=UserPublic)\ndef update_user(\n    user_id: int,\n    user: UserPartial,\n    session: Session = Depends(get_session),",
-        "detail": "fast_zero.app",
+        "importPath": "fast_zero.routes.users",
+        "description": "fast_zero.routes.users",
+        "peekOfCode": "def list_users(session: Session, skip: int = 0, limit: int = 100):\n    users = session.scalars(select(User).offset(skip).limit(limit)).all()\n    return {'users': users}\n@router.put('/{user_id}', response_model=UserPublic)\ndef update_user(\n    user_id: int,\n    user: UserPartial,\n    session: Session,\n    current_user: CurrentUser,\n):",
+        "detail": "fast_zero.routes.users",
         "documentation": {}
     },
     {
         "label": "update_user",
         "kind": 2,
-        "importPath": "fast_zero.app",
-        "description": "fast_zero.app",
-        "peekOfCode": "def update_user(\n    user_id: int,\n    user: UserPartial,\n    session: Session = Depends(get_session),\n    current_user=Depends(get_current_user),\n):\n    if current_user.id != user_id:\n        raise HTTPException(status_code=400, detail='Not enough permissions')\n    for field, value in user.model_dump(exclude_unset=True).items():\n        if field == 'password':",
-        "detail": "fast_zero.app",
+        "importPath": "fast_zero.routes.users",
+        "description": "fast_zero.routes.users",
+        "peekOfCode": "def update_user(\n    user_id: int,\n    user: UserPartial,\n    session: Session,\n    current_user: CurrentUser,\n):\n    if current_user.id != user_id:\n        raise HTTPException(status_code=400, detail='Not enough permissions')\n    for field, value in user.model_dump(exclude_unset=True).items():\n        if field == 'password':",
+        "detail": "fast_zero.routes.users",
         "documentation": {}
     },
     {
         "label": "delete_user",
         "kind": 2,
-        "importPath": "fast_zero.app",
-        "description": "fast_zero.app",
-        "peekOfCode": "def delete_user(\n    user_id: int,\n    session: Session = Depends(get_session),\n    current_user=Depends(get_current_user),\n):\n    if current_user.id != user_id:\n        raise HTTPException(status_code=400, detail='Not enough permissions')\n    session.delete(current_user)\n    session.commit()\n    return {'detail': 'User deleted'}",
-        "detail": "fast_zero.app",
+        "importPath": "fast_zero.routes.users",
+        "description": "fast_zero.routes.users",
+        "peekOfCode": "def delete_user(\n    user_id: int,\n    session: Session,\n    current_user: CurrentUser,\n):\n    if current_user.id != user_id:\n        raise HTTPException(status_code=400, detail='Not enough permissions')\n    session.delete(current_user)\n    session.commit()\n    return {'detail': 'User deleted'}",
+        "detail": "fast_zero.routes.users",
         "documentation": {}
     },
     {
-        "label": "login_for_access_token",
+        "label": "router",
+        "kind": 5,
+        "importPath": "fast_zero.routes.users",
+        "description": "fast_zero.routes.users",
+        "peekOfCode": "router = APIRouter(prefix='/users', tags=['users'])\nSession = Annotated[Session, Depends(get_session)]\nCurrentUser = Annotated[User, Depends(get_current_user)]\n@router.post('/', status_code=201, response_model=UserPublic)\ndef create_user(user: UserSchema, session: Session):\n    db_user = session.scalar(\n        select(User).where(User.username == user.username)\n    )\n    if db_user:\n        raise HTTPException(",
+        "detail": "fast_zero.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "kind": 5,
+        "importPath": "fast_zero.routes.users",
+        "description": "fast_zero.routes.users",
+        "peekOfCode": "Session = Annotated[Session, Depends(get_session)]\nCurrentUser = Annotated[User, Depends(get_current_user)]\n@router.post('/', status_code=201, response_model=UserPublic)\ndef create_user(user: UserSchema, session: Session):\n    db_user = session.scalar(\n        select(User).where(User.username == user.username)\n    )\n    if db_user:\n        raise HTTPException(\n            status_code=400, detail='Username already registered'",
+        "detail": "fast_zero.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "CurrentUser",
+        "kind": 5,
+        "importPath": "fast_zero.routes.users",
+        "description": "fast_zero.routes.users",
+        "peekOfCode": "CurrentUser = Annotated[User, Depends(get_current_user)]\n@router.post('/', status_code=201, response_model=UserPublic)\ndef create_user(user: UserSchema, session: Session):\n    db_user = session.scalar(\n        select(User).where(User.username == user.username)\n    )\n    if db_user:\n        raise HTTPException(\n            status_code=400, detail='Username already registered'\n        )",
+        "detail": "fast_zero.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "read_root",
         "kind": 2,
         "importPath": "fast_zero.app",
         "description": "fast_zero.app",
-        "peekOfCode": "def login_for_access_token(\n    form_data: OAuth2PasswordRequestForm = Depends(),\n    session: Session = Depends(get_session),\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:\n        raise HTTPException(\n            status_code=400, detail='Incorrect email or password'\n        )\n    if not verify_password(form_data.password, user.password):",
+        "peekOfCode": "def read_root():\n    return {'message': 'Olá Mundo!'}",
         "detail": "fast_zero.app",
         "documentation": {}
     },
@@ -703,16 +835,7 @@
         "kind": 5,
         "importPath": "fast_zero.app",
         "description": "fast_zero.app",
-        "peekOfCode": "app = FastAPI()\napp.include_router(static.router)\n@app.get('/')\ndef read_root():\n    return {'message': 'Olá Mundo!'}\ndatabase = []  # database in memory\n@app.post('/users/', status_code=201, response_model=UserPublic)\ndef create_user(user: UserSchema, session: Session = Depends(get_session)):\n    db_user = session.scalar(\n        select(User).where(User.username == user.username)",
-        "detail": "fast_zero.app",
-        "documentation": {}
-    },
-    {
-        "label": "database",
-        "kind": 5,
-        "importPath": "fast_zero.app",
-        "description": "fast_zero.app",
-        "peekOfCode": "database = []  # database in memory\n@app.post('/users/', status_code=201, response_model=UserPublic)\ndef create_user(user: UserSchema, session: Session = Depends(get_session)):\n    db_user = session.scalar(\n        select(User).where(User.username == user.username)\n    )\n    if db_user:\n        raise HTTPException(\n            status_code=400, detail='Username already registered'\n        )",
+        "peekOfCode": "app = FastAPI()\napp.include_router(static.router)\napp.include_router(users.router)\napp.include_router(auth.router)\n@app.get('/')\ndef read_root():\n    return {'message': 'Olá Mundo!'}",
         "detail": "fast_zero.app",
         "documentation": {}
     },
@@ -829,7 +952,7 @@
         "kind": 2,
         "importPath": "fast_zero.security",
         "description": "fast_zero.security",
-        "peekOfCode": "def create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\n    return encoded_jwt\ndef get_password_hash(password: str):\n    return pwd_context.hash(password)\ndef verify_password(plain_password: str, hashed_password: str):\n    return pwd_context.verify(plain_password, hashed_password)",
+        "peekOfCode": "def create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES\n    )\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(\n        to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM\n    )\n    return encoded_jwt",
         "detail": "fast_zero.security",
         "documentation": {}
     },
@@ -838,7 +961,7 @@
         "kind": 2,
         "importPath": "fast_zero.security",
         "description": "fast_zero.security",
-        "peekOfCode": "def get_password_hash(password: str):\n    return pwd_context.hash(password)\ndef verify_password(plain_password: str, hashed_password: str):\n    return pwd_context.verify(plain_password, hashed_password)\noauth2_scheme = OAuth2PasswordBearer(tokenUrl='token')\nasync def get_current_user(\n    session: Session = Depends(get_session),\n    token: str = Depends(oauth2_scheme),\n):\n    credentials_exception = HTTPException(",
+        "peekOfCode": "def get_password_hash(password: str):\n    return pwd_context.hash(password)\ndef verify_password(plain_password: str, hashed_password: str):\n    return pwd_context.verify(plain_password, hashed_password)\noauth2_scheme = OAuth2PasswordBearer(tokenUrl='auth/token')\nasync def get_current_user(\n    session: Session = Depends(get_session),\n    token: str = Depends(oauth2_scheme),\n):\n    credentials_exception = HTTPException(",
         "detail": "fast_zero.security",
         "documentation": {}
     },
@@ -847,34 +970,16 @@
         "kind": 2,
         "importPath": "fast_zero.security",
         "description": "fast_zero.security",
-        "peekOfCode": "def verify_password(plain_password: str, hashed_password: str):\n    return pwd_context.verify(plain_password, hashed_password)\noauth2_scheme = OAuth2PasswordBearer(tokenUrl='token')\nasync def get_current_user(\n    session: Session = Depends(get_session),\n    token: str = Depends(oauth2_scheme),\n):\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail='Could not validate credentials',",
+        "peekOfCode": "def verify_password(plain_password: str, hashed_password: str):\n    return pwd_context.verify(plain_password, hashed_password)\noauth2_scheme = OAuth2PasswordBearer(tokenUrl='auth/token')\nasync def get_current_user(\n    session: Session = Depends(get_session),\n    token: str = Depends(oauth2_scheme),\n):\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail='Could not validate credentials',",
         "detail": "fast_zero.security",
         "documentation": {}
     },
     {
-        "label": "SECRET_KEY",
+        "label": "settings",
         "kind": 5,
         "importPath": "fast_zero.security",
         "description": "fast_zero.security",
-        "peekOfCode": "SECRET_KEY = 'your-secret'\nALGORITHM = 'HS256'\nACCESS_TOKEN_EXPIRE_MINUTES = 30\npwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\n    return encoded_jwt",
-        "detail": "fast_zero.security",
-        "documentation": {}
-    },
-    {
-        "label": "ALGORITHM",
-        "kind": 5,
-        "importPath": "fast_zero.security",
-        "description": "fast_zero.security",
-        "peekOfCode": "ALGORITHM = 'HS256'\nACCESS_TOKEN_EXPIRE_MINUTES = 30\npwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\n    return encoded_jwt\ndef get_password_hash(password: str):",
-        "detail": "fast_zero.security",
-        "documentation": {}
-    },
-    {
-        "label": "ACCESS_TOKEN_EXPIRE_MINUTES",
-        "kind": 5,
-        "importPath": "fast_zero.security",
-        "description": "fast_zero.security",
-        "peekOfCode": "ACCESS_TOKEN_EXPIRE_MINUTES = 30\npwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\n    return encoded_jwt\ndef get_password_hash(password: str):\n    return pwd_context.hash(password)",
+        "peekOfCode": "settings = Settings()\npwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES\n    )\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(\n        to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM",
         "detail": "fast_zero.security",
         "documentation": {}
     },
@@ -883,7 +988,7 @@
         "kind": 5,
         "importPath": "fast_zero.security",
         "description": "fast_zero.security",
-        "peekOfCode": "pwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\n    return encoded_jwt\ndef get_password_hash(password: str):\n    return pwd_context.hash(password)\ndef verify_password(plain_password: str, hashed_password: str):",
+        "peekOfCode": "pwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')\ndef create_access_token(data: dict):\n    to_encode = data.copy()\n    expire = datetime.utcnow() + timedelta(\n        minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES\n    )\n    to_encode.update({'exp': expire})\n    encoded_jwt = jwt.encode(\n        to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM\n    )",
         "detail": "fast_zero.security",
         "documentation": {}
     },
@@ -892,7 +997,7 @@
         "kind": 5,
         "importPath": "fast_zero.security",
         "description": "fast_zero.security",
-        "peekOfCode": "oauth2_scheme = OAuth2PasswordBearer(tokenUrl='token')\nasync def get_current_user(\n    session: Session = Depends(get_session),\n    token: str = Depends(oauth2_scheme),\n):\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail='Could not validate credentials',\n        headers={'WWW-Authenticate': 'Bearer'},\n    )",
+        "peekOfCode": "oauth2_scheme = OAuth2PasswordBearer(tokenUrl='auth/token')\nasync def get_current_user(\n    session: Session = Depends(get_session),\n    token: str = Depends(oauth2_scheme),\n):\n    credentials_exception = HTTPException(\n        status_code=status.HTTP_401_UNAUTHORIZED,\n        detail='Could not validate credentials',\n        headers={'WWW-Authenticate': 'Bearer'},\n    )",
         "detail": "fast_zero.security",
         "documentation": {}
     },
@@ -901,7 +1006,7 @@
         "kind": 6,
         "importPath": "fast_zero.settings",
         "description": "fast_zero.settings",
-        "peekOfCode": "class Settings(BaseSettings):\n    model_config = SettingsConfigDict(\n        env_file='.env', env_file_encoding='utf-8'\n    )\n    DATABASE_URL: str",
+        "peekOfCode": "class Settings(BaseSettings):\n    model_config = SettingsConfigDict(\n        env_file='.env', env_file_encoding='utf-8'\n    )\n    DATABASE_URL: str\n    SECRET_KEY: str\n    ALGORITHM: str\n    ACCESS_TOKEN_EXPIRE_MINUTES: int",
         "detail": "fast_zero.settings",
         "documentation": {}
     },
@@ -991,7 +1096,7 @@
         "kind": 2,
         "importPath": "tests.conftest",
         "description": "tests.conftest",
-        "peekOfCode": "def token(client, user):\n    response = client.post(\n        '/token',\n        data={'username': user.email, 'password': user.clean_password},\n    )\n    return response.json()['access_token']",
+        "peekOfCode": "def token(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.email, 'password': user.clean_password},\n    )\n    return response.json()['access_token']",
         "detail": "tests.conftest",
         "documentation": {}
     },
@@ -1000,98 +1105,17 @@
         "kind": 2,
         "importPath": "tests.test_app",
         "description": "tests.test_app",
-        "peekOfCode": "def test_root_deve_retornar_200_e_ola_mundo(client):\n    response = client.get('/')\n    assert response.status_code == 200\n    assert response.json() == {'message': 'Olá Mundo!'}\ndef test_create_user(client):\n    response = client.post(\n        '/users/',\n        json=fake_user,\n    )\n    assert response.status_code == 201",
-        "detail": "tests.test_app",
-        "documentation": {}
-    },
-    {
-        "label": "test_create_user",
-        "kind": 2,
-        "importPath": "tests.test_app",
-        "description": "tests.test_app",
-        "peekOfCode": "def test_create_user(client):\n    response = client.post(\n        '/users/',\n        json=fake_user,\n    )\n    assert response.status_code == 201\n    assert response.json() == fake_user_with_id\ndef test_read_users(client, user):\n    user_schema = UserPublic.model_validate(user).model_dump()\n    response = client.get('/users/')",
-        "detail": "tests.test_app",
-        "documentation": {}
-    },
-    {
-        "label": "test_read_users",
-        "kind": 2,
-        "importPath": "tests.test_app",
-        "description": "tests.test_app",
-        "peekOfCode": "def test_read_users(client, user):\n    user_schema = UserPublic.model_validate(user).model_dump()\n    response = client.get('/users/')\n    assert response.json() == {'users': [user_schema]}\ndef test_update_user(client, user, token):\n    response = client.put(\n        '/users/1',\n        headers={'Authorization': f'Bearer {token}'},\n        json={'username': 'bob'},\n    )",
-        "detail": "tests.test_app",
-        "documentation": {}
-    },
-    {
-        "label": "test_update_user",
-        "kind": 2,
-        "importPath": "tests.test_app",
-        "description": "tests.test_app",
-        "peekOfCode": "def test_update_user(client, user, token):\n    response = client.put(\n        '/users/1',\n        headers={'Authorization': f'Bearer {token}'},\n        json={'username': 'bob'},\n    )\n    assert response.status_code == 200\n    assert response.json() == {\n        'id': 1,\n        'username': 'bob',",
-        "detail": "tests.test_app",
-        "documentation": {}
-    },
-    {
-        "label": "test_delete_user",
-        "kind": 2,
-        "importPath": "tests.test_app",
-        "description": "tests.test_app",
-        "peekOfCode": "def test_delete_user(client, user, token):\n    response = client.delete(\n        '/users/1',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert response.status_code == 200\n    assert response.json() == {'detail': 'User deleted'}\n    response = client.get('/users/')\n    assert response.status_code == 200\n    assert response.json() == {'users': []}",
-        "detail": "tests.test_app",
-        "documentation": {}
-    },
-    {
-        "label": "test_should_return_400_when_updating_other_user",
-        "kind": 2,
-        "importPath": "tests.test_app",
-        "description": "tests.test_app",
-        "peekOfCode": "def test_should_return_400_when_updating_other_user(client, user, token):\n    response = client.put(\n        '/users/5',\n        headers={'Authorization': f'Bearer {token}'},\n        json={'username': 'bob'},\n    )\n    assert response.status_code == 400\ndef test_should_return_400_when_deleting_other_user(client, user, token):\n    response = client.delete(\n        '/users/5',",
-        "detail": "tests.test_app",
-        "documentation": {}
-    },
-    {
-        "label": "test_should_return_400_when_deleting_other_user",
-        "kind": 2,
-        "importPath": "tests.test_app",
-        "description": "tests.test_app",
-        "peekOfCode": "def test_should_return_400_when_deleting_other_user(client, user, token):\n    response = client.delete(\n        '/users/5',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert response.status_code == 400\ndef test_should_return_400_when_creating_user_with_existing_username(\n    client, user\n):\n    response = client.post(",
-        "detail": "tests.test_app",
-        "documentation": {}
-    },
-    {
-        "label": "test_should_return_400_when_creating_user_with_existing_username",
-        "kind": 2,
-        "importPath": "tests.test_app",
-        "description": "tests.test_app",
-        "peekOfCode": "def test_should_return_400_when_creating_user_with_existing_username(\n    client, user\n):\n    response = client.post(\n        '/users/',\n        json={\n            'username': 'Teste',\n            'email': 'testando@outroemail.com',\n            'password': 'outro_password',\n        },",
+        "peekOfCode": "def test_root_deve_retornar_200_e_ola_mundo(client):\n    response = client.get('/')\n    assert response.status_code == 200\n    assert response.json() == {'message': 'Olá Mundo!'}",
         "detail": "tests.test_app",
         "documentation": {}
     },
     {
         "label": "test_get_token",
         "kind": 2,
-        "importPath": "tests.test_app",
-        "description": "tests.test_app",
-        "peekOfCode": "def test_get_token(client, user):\n    response = client.post(\n        '/token',\n        data={'username': user.email, 'password': user.clean_password},\n    )\n    token = response.json()\n    assert response.status_code == 200\n    assert 'access_token' in token\n    assert 'token_type' in token",
-        "detail": "tests.test_app",
-        "documentation": {}
-    },
-    {
-        "label": "fake_user",
-        "kind": 5,
-        "importPath": "tests.test_app",
-        "description": "tests.test_app",
-        "peekOfCode": "fake_user = {\n    'username': 'alice',\n    'email': 'alice@example.com',\n    'password': 'secret',\n}\nfake_user_with_id = {\n    'id': 1,\n    'username': 'alice',\n    'email': 'alice@example.com',\n}",
-        "detail": "tests.test_app",
-        "documentation": {}
-    },
-    {
-        "label": "fake_user_with_id",
-        "kind": 5,
-        "importPath": "tests.test_app",
-        "description": "tests.test_app",
-        "peekOfCode": "fake_user_with_id = {\n    'id': 1,\n    'username': 'alice',\n    'email': 'alice@example.com',\n}\ndef test_root_deve_retornar_200_e_ola_mundo(client):\n    response = client.get('/')\n    assert response.status_code == 200\n    assert response.json() == {'message': 'Olá Mundo!'}\ndef test_create_user(client):",
-        "detail": "tests.test_app",
+        "importPath": "tests.test_auth",
+        "description": "tests.test_auth",
+        "peekOfCode": "def test_get_token(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.email, 'password': user.clean_password},\n    )\n    token = response.json()\n    assert response.status_code == 200\n    assert 'access_token' in token\n    assert 'token_type' in token",
+        "detail": "tests.test_auth",
         "documentation": {}
     },
     {
@@ -1117,8 +1141,98 @@
         "kind": 2,
         "importPath": "tests.test_security",
         "description": "tests.test_security",
-        "peekOfCode": "def test_jwt():\n    data = {'test': 'test'}\n    token = create_access_token(data)\n    decoded = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])\n    assert decoded['test'] == 'test'\n    assert decoded['exp']",
+        "peekOfCode": "def test_jwt():\n    data = {'test': 'test'}\n    token = create_access_token(data)\n    decoded = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])\n    assert decoded['test'] == 'test'\n    assert decoded['exp']",
         "detail": "tests.test_security",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "kind": 5,
+        "importPath": "tests.test_security",
+        "description": "tests.test_security",
+        "peekOfCode": "settings = Settings()\ndef test_jwt():\n    data = {'test': 'test'}\n    token = create_access_token(data)\n    decoded = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])\n    assert decoded['test'] == 'test'\n    assert decoded['exp']",
+        "detail": "tests.test_security",
+        "documentation": {}
+    },
+    {
+        "label": "test_create_user",
+        "kind": 2,
+        "importPath": "tests.test_users",
+        "description": "tests.test_users",
+        "peekOfCode": "def test_create_user(client):\n    response = client.post(\n        '/users/',\n        json=fake_user,\n    )\n    assert response.status_code == 201\n    assert response.json() == fake_user_with_id\ndef test_read_users(client, user):\n    user_schema = UserPublic.model_validate(user).model_dump()\n    response = client.get('/users/')",
+        "detail": "tests.test_users",
+        "documentation": {}
+    },
+    {
+        "label": "test_read_users",
+        "kind": 2,
+        "importPath": "tests.test_users",
+        "description": "tests.test_users",
+        "peekOfCode": "def test_read_users(client, user):\n    user_schema = UserPublic.model_validate(user).model_dump()\n    response = client.get('/users/')\n    assert response.json() == {'users': [user_schema]}\ndef test_update_user(client, user, token):\n    response = client.put(\n        '/users/1',\n        headers={'Authorization': f'Bearer {token}'},\n        json={'username': 'bob'},\n    )",
+        "detail": "tests.test_users",
+        "documentation": {}
+    },
+    {
+        "label": "test_update_user",
+        "kind": 2,
+        "importPath": "tests.test_users",
+        "description": "tests.test_users",
+        "peekOfCode": "def test_update_user(client, user, token):\n    response = client.put(\n        '/users/1',\n        headers={'Authorization': f'Bearer {token}'},\n        json={'username': 'bob'},\n    )\n    assert response.status_code == 200\n    assert response.json() == {\n        'id': 1,\n        'username': 'bob',",
+        "detail": "tests.test_users",
+        "documentation": {}
+    },
+    {
+        "label": "test_delete_user",
+        "kind": 2,
+        "importPath": "tests.test_users",
+        "description": "tests.test_users",
+        "peekOfCode": "def test_delete_user(client, user, token):\n    response = client.delete(\n        '/users/1',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert response.status_code == 200\n    assert response.json() == {'detail': 'User deleted'}\n    response = client.get('/users/')\n    assert response.status_code == 200\n    assert response.json() == {'users': []}",
+        "detail": "tests.test_users",
+        "documentation": {}
+    },
+    {
+        "label": "test_should_return_400_when_updating_other_user",
+        "kind": 2,
+        "importPath": "tests.test_users",
+        "description": "tests.test_users",
+        "peekOfCode": "def test_should_return_400_when_updating_other_user(client, user, token):\n    response = client.put(\n        '/users/5',\n        headers={'Authorization': f'Bearer {token}'},\n        json={'username': 'bob'},\n    )\n    assert response.status_code == 400\ndef test_should_return_400_when_deleting_other_user(client, user, token):\n    response = client.delete(\n        '/users/5',",
+        "detail": "tests.test_users",
+        "documentation": {}
+    },
+    {
+        "label": "test_should_return_400_when_deleting_other_user",
+        "kind": 2,
+        "importPath": "tests.test_users",
+        "description": "tests.test_users",
+        "peekOfCode": "def test_should_return_400_when_deleting_other_user(client, user, token):\n    response = client.delete(\n        '/users/5',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert response.status_code == 400\ndef test_should_return_400_when_creating_user_with_existing_username(\n    client, user\n):\n    response = client.post(",
+        "detail": "tests.test_users",
+        "documentation": {}
+    },
+    {
+        "label": "test_should_return_400_when_creating_user_with_existing_username",
+        "kind": 2,
+        "importPath": "tests.test_users",
+        "description": "tests.test_users",
+        "peekOfCode": "def test_should_return_400_when_creating_user_with_existing_username(\n    client, user\n):\n    response = client.post(\n        '/users/',\n        json={\n            'username': 'Teste',\n            'email': 'testando@outroemail.com',\n            'password': 'outro_password',\n        },",
+        "detail": "tests.test_users",
+        "documentation": {}
+    },
+    {
+        "label": "fake_user",
+        "kind": 5,
+        "importPath": "tests.test_users",
+        "description": "tests.test_users",
+        "peekOfCode": "fake_user = {\n    'username': 'alice',\n    'email': 'alice@example.com',\n    'password': 'secret',\n}\nfake_user_with_id = {\n    'id': 1,\n    'username': 'alice',\n    'email': 'alice@example.com',\n}",
+        "detail": "tests.test_users",
+        "documentation": {}
+    },
+    {
+        "label": "fake_user_with_id",
+        "kind": 5,
+        "importPath": "tests.test_users",
+        "description": "tests.test_users",
+        "peekOfCode": "fake_user_with_id = {\n    'id': 1,\n    'username': 'alice',\n    'email': 'alice@example.com',\n}\ndef test_create_user(client):\n    response = client.post(\n        '/users/',\n        json=fake_user,\n    )",
+        "detail": "tests.test_users",
         "documentation": {}
     }
 ]

@@ -1,5 +1,53 @@
 [
     {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "APIRouter",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -425,6 +473,14 @@
         "documentation": {}
     },
     {
+        "label": "get_current_user",
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "isExtraImport": true,
+        "detail": "fast_zero.security",
+        "documentation": {}
+    },
+    {
         "label": "verify_password",
         "importPath": "fast_zero.security",
         "description": "fast_zero.security",
@@ -478,46 +534,6 @@
         "description": "fastapi.templating",
         "isExtraImport": true,
         "detail": "fastapi.templating",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Annotated",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Sequence",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Union",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
         "documentation": {}
     },
     {
@@ -735,7 +751,16 @@
         "kind": 2,
         "importPath": "fast_zero.routes.auth",
         "description": "fast_zero.routes.auth",
-        "peekOfCode": "def login_for_access_token(\n    form_data: OAuth2PasswordRequestForm = Depends(),\n    session: Session = Depends(get_session),\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:\n        raise HTTPException(\n            status_code=400, detail='Incorrect email or password'\n        )\n    if not verify_password(form_data.password, user.password):",
+        "peekOfCode": "def login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:\n        raise HTTPException(\n            status_code=400, detail='Incorrect email or password'\n        )\n    if not verify_password(form_data.password, user.password):",
+        "detail": "fast_zero.routes.auth",
+        "documentation": {}
+    },
+    {
+        "label": "refresh_access_token",
+        "kind": 2,
+        "importPath": "fast_zero.routes.auth",
+        "description": "fast_zero.routes.auth",
+        "peekOfCode": "def refresh_access_token(\n    user: CurrentUser,\n):\n    new_access_token = create_access_token(data={'sub': user.email})\n    return {'access_token': new_access_token, 'token_type': 'bearer'}",
         "detail": "fast_zero.routes.auth",
         "documentation": {}
     },
@@ -744,7 +769,34 @@
         "kind": 5,
         "importPath": "fast_zero.routes.auth",
         "description": "fast_zero.routes.auth",
-        "peekOfCode": "router = APIRouter(prefix='/auth', tags=['auth'])\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    form_data: OAuth2PasswordRequestForm = Depends(),\n    session: Session = Depends(get_session),\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:\n        raise HTTPException(\n            status_code=400, detail='Incorrect email or password'",
+        "peekOfCode": "router = APIRouter(prefix='/auth', tags=['auth'])\nSession = Annotated[Session, Depends(get_session)]\nCurrentUser = Annotated[User, Depends(get_current_user)]\nRequestForm = Annotated[OAuth2PasswordRequestForm, Depends()]\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))",
+        "detail": "fast_zero.routes.auth",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "kind": 5,
+        "importPath": "fast_zero.routes.auth",
+        "description": "fast_zero.routes.auth",
+        "peekOfCode": "Session = Annotated[Session, Depends(get_session)]\nCurrentUser = Annotated[User, Depends(get_current_user)]\nRequestForm = Annotated[OAuth2PasswordRequestForm, Depends()]\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:",
+        "detail": "fast_zero.routes.auth",
+        "documentation": {}
+    },
+    {
+        "label": "CurrentUser",
+        "kind": 5,
+        "importPath": "fast_zero.routes.auth",
+        "description": "fast_zero.routes.auth",
+        "peekOfCode": "CurrentUser = Annotated[User, Depends(get_current_user)]\nRequestForm = Annotated[OAuth2PasswordRequestForm, Depends()]\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:\n        raise HTTPException(",
+        "detail": "fast_zero.routes.auth",
+        "documentation": {}
+    },
+    {
+        "label": "RequestForm",
+        "kind": 5,
+        "importPath": "fast_zero.routes.auth",
+        "description": "fast_zero.routes.auth",
+        "peekOfCode": "RequestForm = Annotated[OAuth2PasswordRequestForm, Depends()]\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:\n        raise HTTPException(\n            status_code=400, detail='Incorrect email or password'",
         "detail": "fast_zero.routes.auth",
         "documentation": {}
     },
@@ -1176,7 +1228,25 @@
         "kind": 2,
         "importPath": "tests.test_auth",
         "description": "tests.test_auth",
-        "peekOfCode": "def test_token_wrong_password(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.email, 'password': 'wrongpassword'},\n    )\n    assert response.status_code == 400\n    assert response.json() == {'detail': 'Incorrect email or password'}",
+        "peekOfCode": "def test_token_wrong_password(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.email, 'password': 'wrongpassword'},\n    )\n    assert response.status_code == 400\n    assert response.json() == {'detail': 'Incorrect email or password'}\ndef test_refresh_token(client, user, token):\n    response = client.post(\n        '/auth/refresh_token',",
+        "detail": "tests.test_auth",
+        "documentation": {}
+    },
+    {
+        "label": "test_refresh_token",
+        "kind": 2,
+        "importPath": "tests.test_auth",
+        "description": "tests.test_auth",
+        "peekOfCode": "def test_refresh_token(client, user, token):\n    response = client.post(\n        '/auth/refresh_token',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    data = response.json()\n    assert response.status_code == 200\n    assert 'access_token' in data\n    assert 'token_type' in data\n    assert data['token_type'] == 'bearer'",
+        "detail": "tests.test_auth",
+        "documentation": {}
+    },
+    {
+        "label": "test_token_expired_dont_refresh",
+        "kind": 2,
+        "importPath": "tests.test_auth",
+        "description": "tests.test_auth",
+        "peekOfCode": "def test_token_expired_dont_refresh(client, user):\n    with freeze_time('2023-07-14 12:00:00'):\n        response = client.post(\n            '/auth/token',\n            data={'username': user.email, 'password': user.clean_password},\n        )\n        assert response.status_code == 200\n        token = response.json()['access_token']\n    with freeze_time('2023-07-14 12:31:00'):\n        response = client.post(",
         "detail": "tests.test_auth",
         "documentation": {}
     },

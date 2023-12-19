@@ -5,7 +5,9 @@ WORKDIR app/
 COPY . .
 
 
-RUN pip install poetry==1.7.1 && poetry install --no-root --no-directory
+RUN pip install --no-cache-dir poetry==1.7.1
+
+RUN poetry install --no-root --no-directory
 
 RUN poetry config installer.max-workers 10
 RUN poetry install --no-interaction --no-ansi

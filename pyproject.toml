@@ -69,5 +69,5 @@ test = 'pytest -s -x --cov=fast_zero -vv'
 post_test = 'coverage html'
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core=1.7.1"]
 build-backend = "poetry.core.masonry.api"

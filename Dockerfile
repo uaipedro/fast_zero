@@ -4,8 +4,9 @@ ENV POETRY_VIRTUALENVS_CREATE=false
 WORKDIR app/
 COPY . .
 
+ENV POETRY_VERSION 1.7.1
 
-RUN pip install --no-cache-dir poetry==1.7.1
+RUN pip install "poetry==$POETRY_VERSION"
 
 RUN poetry install --no-root --no-directory
 

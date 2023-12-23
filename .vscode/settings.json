@@ -1,7 +1,10 @@
 {
-    "python.testing.pytestArgs": [
-        "tests"
-    ],
-    "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+  "python.testing.pytestArgs": ["tests"],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#561529",
+    "titleBar.activeBackground": "#781E39",
+    "titleBar.activeForeground": "#FEFBFC"
+  }
 }

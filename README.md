@@ -26,4 +26,4 @@ Para usar este projeto, siga as instruções abaixo:
 
 Para executar os testes automatizados deste sistema, utilize o comando `task test` no terminal.
 
-- Os testes e2e para este projeto estão disponíveis em [https://github.com/uaipedro/e2e-test](https://github.com/uaipedro/e2e-test).
+- Os testes e2e para este projeto estão disponíveis em [https://github.com/uaipedro/e2e-test-for-next-client].

@@ -2,6 +2,10 @@
 
 Fast Zero é uma aplicação baseada em FastAPI que oferece uma API RESTful para o gerenciamento de usuários.
 
+## Cliente Front End
+
+Um exemplo de aplicação frontend, utilizando Next.js, para consumir a API pode ser encontrado em [next-client](https://github.com/uaipedro/next-client-with-login)
+
 ## Pré-requisitos
 
 Certifique-se de ter o [Poetry](https://python-poetry.org/docs/#installation) instalado em sua máquina. Você pode verificar a instalação com `poetry --version`. Se o Poetry não estiver instalado, siga as instruções na [documentação oficial](https://python-poetry.org/docs/#installation) para instalá-lo.
@@ -26,4 +30,4 @@ Para usar este projeto, siga as instruções abaixo:
 
 Para executar os testes automatizados deste sistema, utilize o comando `task test` no terminal.
 
-- Os testes e2e para este projeto estão disponíveis em [https://github.com/uaipedro/e2e-test-for-next-client].
+

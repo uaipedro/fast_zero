@@ -136,6 +136,14 @@
         "documentation": {}
     },
     {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "Query",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -553,6 +561,14 @@
         "documentation": {}
     },
     {
+        "label": "Message",
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "isExtraImport": true,
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
         "label": "TodoList",
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
@@ -570,6 +586,14 @@
     },
     {
         "label": "TodoSchema",
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "isExtraImport": true,
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "TodoUpdate",
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
         "isExtraImport": true,
@@ -1048,6 +1072,24 @@
         "documentation": {}
     },
     {
+        "label": "patch_todo",
+        "kind": 2,
+        "importPath": "fast_zero.routes.todos",
+        "description": "fast_zero.routes.todos",
+        "peekOfCode": "def patch_todo(\n    todo_id: int,\n    session: Session,\n    user: CurrentUser,\n    todo: TodoUpdate,\n):\n    db_todo = session.scalar(select(Todo).where(Todo.id == todo_id))\n    if not db_todo:\n        raise HTTPException(status_code=404, detail='Task not found')\n    if db_todo.user_id != user.id:",
+        "detail": "fast_zero.routes.todos",
+        "documentation": {}
+    },
+    {
+        "label": "delete_todo",
+        "kind": 2,
+        "importPath": "fast_zero.routes.todos",
+        "description": "fast_zero.routes.todos",
+        "peekOfCode": "def delete_todo(\n    todo_id: int,\n    session: Session,\n    user: CurrentUser,\n):\n    db_todo = session.scalar(select(Todo).where(Todo.id == todo_id))\n    if not db_todo:\n        raise HTTPException(status_code=404, detail='Task not found')\n    if db_todo.user_id != user.id:\n        raise HTTPException(status_code=403, detail='Not authorized')",
+        "detail": "fast_zero.routes.todos",
+        "documentation": {}
+    },
+    {
         "label": "router",
         "kind": 5,
         "importPath": "fast_zero.routes.todos",
@@ -1304,7 +1346,7 @@
         "kind": 6,
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
-        "peekOfCode": "class TodoPublic(BaseModel):\n    id: int\n    title: str\n    description: str\n    state: TodoState\nclass TodoList(BaseModel):\n    todos: list[TodoPublic]",
+        "peekOfCode": "class TodoPublic(BaseModel):\n    id: int\n    title: str\n    description: str\n    state: TodoState\nclass TodoList(BaseModel):\n    todos: list[TodoPublic]\nclass TodoUpdate(BaseModel):\n    title: str | None = None\n    description: str | None = None",
         "detail": "fast_zero.schemas",
         "documentation": {}
     },
@@ -1313,7 +1355,16 @@
         "kind": 6,
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
-        "peekOfCode": "class TodoList(BaseModel):\n    todos: list[TodoPublic]",
+        "peekOfCode": "class TodoList(BaseModel):\n    todos: list[TodoPublic]\nclass TodoUpdate(BaseModel):\n    title: str | None = None\n    description: str | None = None\n    completed: str | None = None",
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "TodoUpdate",
+        "kind": 6,
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "peekOfCode": "class TodoUpdate(BaseModel):\n    title: str | None = None\n    description: str | None = None\n    completed: str | None = None",
         "detail": "fast_zero.schemas",
         "documentation": {}
     },
@@ -1683,6 +1734,42 @@
         "importPath": "tests.test_todos",
         "description": "tests.test_todos",
         "peekOfCode": "def test_list_todos_filter_combined(session, user, client, token):\n    session.bulk_save_objects(\n        TodoFactory.create_batch(\n            5,\n            user_id=user.id,\n            title='Test todo combined',\n            description='combined description',\n            state=TodoState.done,\n        )\n    )",
+        "detail": "tests.test_todos",
+        "documentation": {}
+    },
+    {
+        "label": "test_patch_todo_error",
+        "kind": 2,
+        "importPath": "tests.test_todos",
+        "description": "tests.test_todos",
+        "peekOfCode": "def test_patch_todo_error(client, token):\n    response = client.patch(\n        '/todos/10',\n        json={},\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert response.status_code == 404\n    assert response.json() == {'detail': 'Task not found'}\ndef test_patch_todo(session, client, user, token):\n    todo = TodoFactory(user_id=user.id)",
+        "detail": "tests.test_todos",
+        "documentation": {}
+    },
+    {
+        "label": "test_patch_todo",
+        "kind": 2,
+        "importPath": "tests.test_todos",
+        "description": "tests.test_todos",
+        "peekOfCode": "def test_patch_todo(session, client, user, token):\n    todo = TodoFactory(user_id=user.id)\n    session.add(todo)\n    session.commit()\n    response = client.patch(\n        f'/todos/{todo.id}',\n        json={'title': 'teste!'},\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert response.status_code == 200",
+        "detail": "tests.test_todos",
+        "documentation": {}
+    },
+    {
+        "label": "test_delete_todo",
+        "kind": 2,
+        "importPath": "tests.test_todos",
+        "description": "tests.test_todos",
+        "peekOfCode": "def test_delete_todo(session, client, user, token):\n    todo = TodoFactory(id=1, user_id=user.id)\n    session.add(todo)\n    session.commit()\n    response = client.delete(\n        f'/todos/{todo.id}', headers={'Authorization': f'Bearer {token}'}\n    )\n    assert response.status_code == 200\n    assert response.json() == {'detail': 'Task has been deleted successfully'}\ndef test_delete_todo_error(client, token):",
+        "detail": "tests.test_todos",
+        "documentation": {}
+    },
+    {
+        "label": "test_delete_todo_error",
+        "kind": 2,
+        "importPath": "tests.test_todos",
+        "description": "tests.test_todos",
+        "peekOfCode": "def test_delete_todo_error(client, token):\n    response = client.delete(\n        f'/todos/{10}', headers={'Authorization': f'Bearer {token}'}\n    )\n    assert response.status_code == 404\n    assert response.json() == {'detail': 'Task not found'}",
         "detail": "tests.test_todos",
         "documentation": {}
     },

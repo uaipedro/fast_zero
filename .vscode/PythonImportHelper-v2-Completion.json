@@ -1427,7 +1427,7 @@
         "kind": 6,
         "importPath": "fast_zero.settings",
         "description": "fast_zero.settings",
-        "peekOfCode": "class Settings(BaseSettings):\n    model_config = SettingsConfigDict(\n        env_file='.env', env_file_encoding='utf-8'\n    )\n    DATABASE_URL: str\n    SECRET_KEY: str\n    ALGORITHM: str\n    ACCESS_TOKEN_EXPIRE_MINUTES: int",
+        "peekOfCode": "class Settings(BaseSettings):\n    model_config = SettingsConfigDict(\n        env_file='.env', env_file_encoding='utf-8', extra='ignore'\n    )\n    DATABASE_URL: str\n    SECRET_KEY: str\n    ALGORITHM: str\n    ACCESS_TOKEN_EXPIRE_MINUTES: int",
         "detail": "fast_zero.settings",
         "documentation": {}
     },

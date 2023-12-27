@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 # Executa as migrações do banco de dados
 poetry run alembic upgrade head
 

@@ -5,12 +5,12 @@ services:
     image: postgres
     volumes:
       - pgdata:/var/lib/postgresql/data
-    environment:
-      POSTGRES_USER: app_user
-      POSTGRES_DB: app_db
-      POSTGRES_PASSWORD: app_password
     ports:
       - "5432:5432"
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "app_db", "-U", "app_user"]
 
   fastzero_app:
     image: fastzero_app
@@ -21,9 +21,11 @@ services:
     ports:
       - "8001:8001"
     depends_on:
-      - fastzero_database
+      fastzero_database:
+        condition: service_healthy
     environment:
-      DATABASE_URL: postgresql://app_user:app_password@fastzero_database:5432/app_db
-
+      DATABASE_URL: 
+    env_file:
+      - .env
 volumes:
   pgdata:

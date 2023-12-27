@@ -24,7 +24,31 @@
         "documentation": {}
     },
     {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Sequence",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -89,6 +113,30 @@
     },
     {
         "label": "Request",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -193,7 +241,23 @@
         "documentation": {}
     },
     {
+        "label": "select",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
@@ -273,6 +337,14 @@
         "documentation": {}
     },
     {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
         "label": "DeclarativeBase",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -290,6 +362,14 @@
     },
     {
         "label": "mapped_column",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
         "isExtraImport": true,
@@ -353,6 +433,30 @@
         "documentation": {}
     },
     {
+        "label": "get_session",
+        "importPath": "fast_zero.database",
+        "description": "fast_zero.database",
+        "isExtraImport": true,
+        "detail": "fast_zero.database",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "isExtraImport": true,
+        "detail": "fast_zero.models",
+        "documentation": {}
+    },
+    {
+        "label": "Todo",
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "isExtraImport": true,
+        "detail": "fast_zero.models",
+        "documentation": {}
+    },
+    {
         "label": "User",
         "importPath": "fast_zero.models",
         "description": "fast_zero.models",
@@ -362,6 +466,14 @@
     },
     {
         "label": "User",
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "isExtraImport": true,
+        "detail": "fast_zero.models",
+        "documentation": {}
+    },
+    {
+        "label": "TodoState",
         "importPath": "fast_zero.models",
         "description": "fast_zero.models",
         "isExtraImport": true,
@@ -401,7 +513,31 @@
         "documentation": {}
     },
     {
+        "label": "Todo",
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "isExtraImport": true,
+        "detail": "fast_zero.models",
+        "documentation": {}
+    },
+    {
         "label": "User",
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "isExtraImport": true,
+        "detail": "fast_zero.models",
+        "documentation": {}
+    },
+    {
+        "label": "Todo",
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "isExtraImport": true,
+        "detail": "fast_zero.models",
+        "documentation": {}
+    },
+    {
+        "label": "TodoState",
         "importPath": "fast_zero.models",
         "description": "fast_zero.models",
         "isExtraImport": true,
@@ -410,6 +546,30 @@
     },
     {
         "label": "Token",
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "isExtraImport": true,
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "TodoList",
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "isExtraImport": true,
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "TodoPublic",
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "isExtraImport": true,
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "TodoSchema",
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
         "isExtraImport": true,
@@ -462,6 +622,15 @@
         "description": "fast_zero.schemas",
         "isExtraImport": true,
         "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "fast_zero.security",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "fast_zero.security",
+        "description": "fast_zero.security",
+        "detail": "fast_zero.security",
         "documentation": {}
     },
     {
@@ -537,7 +706,23 @@
         "documentation": {}
     },
     {
+        "label": "auth",
+        "importPath": "fast_zero.routes",
+        "description": "fast_zero.routes",
+        "isExtraImport": true,
+        "detail": "fast_zero.routes",
+        "documentation": {}
+    },
+    {
         "label": "static",
+        "importPath": "fast_zero.routes",
+        "description": "fast_zero.routes",
+        "isExtraImport": true,
+        "detail": "fast_zero.routes",
+        "documentation": {}
+    },
+    {
+        "label": "todos",
         "importPath": "fast_zero.routes",
         "description": "fast_zero.routes",
         "isExtraImport": true,
@@ -553,14 +738,6 @@
         "documentation": {}
     },
     {
-        "label": "auth",
-        "importPath": "fast_zero.routes",
-        "description": "fast_zero.routes",
-        "isExtraImport": true,
-        "detail": "fast_zero.routes",
-        "documentation": {}
-    },
-    {
         "label": "Settings",
         "importPath": "fast_zero.settings",
         "description": "fast_zero.settings",
@@ -590,6 +767,14 @@
         "description": "fast_zero.settings",
         "isExtraImport": true,
         "detail": "fast_zero.settings",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
         "documentation": {}
     },
     {
@@ -689,6 +874,14 @@
         "documentation": {}
     },
     {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
         "label": "context",
         "importPath": "alembic",
         "description": "alembic",
@@ -744,6 +937,15 @@
         "description": "freezegun",
         "isExtraImport": true,
         "detail": "freezegun",
+        "documentation": {}
+    },
+    {
+        "label": "factory.fuzzy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "factory.fuzzy",
+        "description": "factory.fuzzy",
+        "detail": "factory.fuzzy",
         "documentation": {}
     },
     {
@@ -828,6 +1030,60 @@
         "documentation": {}
     },
     {
+        "label": "create_todo",
+        "kind": 2,
+        "importPath": "fast_zero.routes.todos",
+        "description": "fast_zero.routes.todos",
+        "peekOfCode": "def create_todo(\n    todo: TodoSchema,\n    user: CurrentUser,\n    session: Session,\n):\n    db_todo: Todo = Todo(\n        title=todo.title,\n        description=todo.description,\n        state=todo.state,\n        user_id=user.id,",
+        "detail": "fast_zero.routes.todos",
+        "documentation": {}
+    },
+    {
+        "label": "list_todos",
+        "kind": 2,
+        "importPath": "fast_zero.routes.todos",
+        "description": "fast_zero.routes.todos",
+        "peekOfCode": "def list_todos(\n    session: Session,\n    user: CurrentUser,\n    title: str = Query(None),\n    description: str = Query(None),\n    state: str = Query(None),\n    offset: int = Query(None),\n    limit: int = Query(None),\n):\n    query = select(Todo).where(Todo.user_id == user.id)",
+        "detail": "fast_zero.routes.todos",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "fast_zero.routes.todos",
+        "description": "fast_zero.routes.todos",
+        "peekOfCode": "router = APIRouter()\nrouter = APIRouter(prefix='/todos', tags=['todos'])\nCurrentUser = Annotated[User, Depends(fast_zero.security.get_current_user)]\nSession = Annotated[Session, Depends(get_session)]\n@router.post('/', response_model=TodoPublic)\ndef create_todo(\n    todo: TodoSchema,\n    user: CurrentUser,\n    session: Session,\n):",
+        "detail": "fast_zero.routes.todos",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "fast_zero.routes.todos",
+        "description": "fast_zero.routes.todos",
+        "peekOfCode": "router = APIRouter(prefix='/todos', tags=['todos'])\nCurrentUser = Annotated[User, Depends(fast_zero.security.get_current_user)]\nSession = Annotated[Session, Depends(get_session)]\n@router.post('/', response_model=TodoPublic)\ndef create_todo(\n    todo: TodoSchema,\n    user: CurrentUser,\n    session: Session,\n):\n    db_todo: Todo = Todo(",
+        "detail": "fast_zero.routes.todos",
+        "documentation": {}
+    },
+    {
+        "label": "CurrentUser",
+        "kind": 5,
+        "importPath": "fast_zero.routes.todos",
+        "description": "fast_zero.routes.todos",
+        "peekOfCode": "CurrentUser = Annotated[User, Depends(fast_zero.security.get_current_user)]\nSession = Annotated[Session, Depends(get_session)]\n@router.post('/', response_model=TodoPublic)\ndef create_todo(\n    todo: TodoSchema,\n    user: CurrentUser,\n    session: Session,\n):\n    db_todo: Todo = Todo(\n        title=todo.title,",
+        "detail": "fast_zero.routes.todos",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "kind": 5,
+        "importPath": "fast_zero.routes.todos",
+        "description": "fast_zero.routes.todos",
+        "peekOfCode": "Session = Annotated[Session, Depends(get_session)]\n@router.post('/', response_model=TodoPublic)\ndef create_todo(\n    todo: TodoSchema,\n    user: CurrentUser,\n    session: Session,\n):\n    db_todo: Todo = Todo(\n        title=todo.title,\n        description=todo.description,",
+        "detail": "fast_zero.routes.todos",
+        "documentation": {}
+    },
+    {
         "label": "create_user",
         "kind": 2,
         "importPath": "fast_zero.routes.users",
@@ -904,7 +1160,7 @@
         "kind": 5,
         "importPath": "fast_zero.app",
         "description": "fast_zero.app",
-        "peekOfCode": "app = FastAPI()\napp.include_router(static.router)\napp.include_router(users.router)\napp.include_router(auth.router)\n@app.get('/')\ndef read_root():\n    return {'message': 'Olá Mundo!'}",
+        "peekOfCode": "app = FastAPI()\napp.include_router(static.router)\napp.include_router(users.router)\napp.include_router(auth.router)\napp.include_router(todos.router)\n@app.get('/')\ndef read_root():\n    return {'message': 'Olá Mundo!'}",
         "detail": "fast_zero.app",
         "documentation": {}
     },
@@ -931,7 +1187,7 @@
         "kind": 6,
         "importPath": "fast_zero.models",
         "description": "fast_zero.models",
-        "peekOfCode": "class Base(DeclarativeBase):\n    pass\nclass User(Base):\n    __tablename__ = 'users'\n    id: Mapped[int] = mapped_column(primary_key=True)\n    username: Mapped[str]\n    email: Mapped[str]\n    password: Mapped[str]",
+        "peekOfCode": "class Base(DeclarativeBase):\n    pass\nclass User(Base):\n    __tablename__ = 'users'\n    id: Mapped[int] = mapped_column(primary_key=True)\n    username: Mapped[str]\n    email: Mapped[str]\n    password: Mapped[str]\n    todos: Mapped[list['Todo']] = relationship(\n        back_populates='user', cascade='all, delete-orphan'",
         "detail": "fast_zero.models",
         "documentation": {}
     },
@@ -940,7 +1196,25 @@
         "kind": 6,
         "importPath": "fast_zero.models",
         "description": "fast_zero.models",
-        "peekOfCode": "class User(Base):\n    __tablename__ = 'users'\n    id: Mapped[int] = mapped_column(primary_key=True)\n    username: Mapped[str]\n    email: Mapped[str]\n    password: Mapped[str]",
+        "peekOfCode": "class User(Base):\n    __tablename__ = 'users'\n    id: Mapped[int] = mapped_column(primary_key=True)\n    username: Mapped[str]\n    email: Mapped[str]\n    password: Mapped[str]\n    todos: Mapped[list['Todo']] = relationship(\n        back_populates='user', cascade='all, delete-orphan'\n    )\nclass TodoState(str, Enum):",
+        "detail": "fast_zero.models",
+        "documentation": {}
+    },
+    {
+        "label": "TodoState",
+        "kind": 6,
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "peekOfCode": "class TodoState(str, Enum):\n    draft = 'draft'\n    todo = 'todo'\n    doing = 'doing'\n    done = 'done'\n    trash = 'trash'\nclass Todo(Base):\n    __tablename__ = 'todos'\n    id: Mapped[int] = mapped_column(primary_key=True)\n    title: Mapped[str]",
+        "detail": "fast_zero.models",
+        "documentation": {}
+    },
+    {
+        "label": "Todo",
+        "kind": 6,
+        "importPath": "fast_zero.models",
+        "description": "fast_zero.models",
+        "peekOfCode": "class Todo(Base):\n    __tablename__ = 'todos'\n    id: Mapped[int] = mapped_column(primary_key=True)\n    title: Mapped[str]\n    description: Mapped[str]\n    state: Mapped[TodoState]\n    user_id: Mapped[int] = mapped_column(ForeignKey('users.id'))\n    user: Mapped[User] = relationship(back_populates='todos')",
         "detail": "fast_zero.models",
         "documentation": {}
     },
@@ -985,7 +1259,7 @@
         "kind": 6,
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
-        "peekOfCode": "class UserList(BaseModel):\n    users: list[UserPublic] = []\nclass Message(BaseModel):\n    detail: str\nclass Token(BaseModel):\n    access_token: str\n    token_type: str\nclass TokenData(BaseModel):\n    username: str | None = None",
+        "peekOfCode": "class UserList(BaseModel):\n    users: list[UserPublic] = []\nclass Message(BaseModel):\n    detail: str\nclass Token(BaseModel):\n    access_token: str\n    token_type: str\nclass TokenData(BaseModel):\n    username: str | None = None\nclass TodoSchema(BaseModel):",
         "detail": "fast_zero.schemas",
         "documentation": {}
     },
@@ -994,7 +1268,7 @@
         "kind": 6,
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
-        "peekOfCode": "class Message(BaseModel):\n    detail: str\nclass Token(BaseModel):\n    access_token: str\n    token_type: str\nclass TokenData(BaseModel):\n    username: str | None = None",
+        "peekOfCode": "class Message(BaseModel):\n    detail: str\nclass Token(BaseModel):\n    access_token: str\n    token_type: str\nclass TokenData(BaseModel):\n    username: str | None = None\nclass TodoSchema(BaseModel):\n    title: str\n    description: str",
         "detail": "fast_zero.schemas",
         "documentation": {}
     },
@@ -1003,7 +1277,7 @@
         "kind": 6,
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
-        "peekOfCode": "class Token(BaseModel):\n    access_token: str\n    token_type: str\nclass TokenData(BaseModel):\n    username: str | None = None",
+        "peekOfCode": "class Token(BaseModel):\n    access_token: str\n    token_type: str\nclass TokenData(BaseModel):\n    username: str | None = None\nclass TodoSchema(BaseModel):\n    title: str\n    description: str\n    state: TodoState\nclass TodoPublic(BaseModel):",
         "detail": "fast_zero.schemas",
         "documentation": {}
     },
@@ -1012,7 +1286,34 @@
         "kind": 6,
         "importPath": "fast_zero.schemas",
         "description": "fast_zero.schemas",
-        "peekOfCode": "class TokenData(BaseModel):\n    username: str | None = None",
+        "peekOfCode": "class TokenData(BaseModel):\n    username: str | None = None\nclass TodoSchema(BaseModel):\n    title: str\n    description: str\n    state: TodoState\nclass TodoPublic(BaseModel):\n    id: int\n    title: str\n    description: str",
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "TodoSchema",
+        "kind": 6,
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "peekOfCode": "class TodoSchema(BaseModel):\n    title: str\n    description: str\n    state: TodoState\nclass TodoPublic(BaseModel):\n    id: int\n    title: str\n    description: str\n    state: TodoState\nclass TodoList(BaseModel):",
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "TodoPublic",
+        "kind": 6,
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "peekOfCode": "class TodoPublic(BaseModel):\n    id: int\n    title: str\n    description: str\n    state: TodoState\nclass TodoList(BaseModel):\n    todos: list[TodoPublic]",
+        "detail": "fast_zero.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "TodoList",
+        "kind": 6,
+        "importPath": "fast_zero.schemas",
+        "description": "fast_zero.schemas",
+        "peekOfCode": "class TodoList(BaseModel):\n    todos: list[TodoPublic]",
         "detail": "fast_zero.schemas",
         "documentation": {}
     },
@@ -1077,6 +1378,24 @@
         "description": "fast_zero.settings",
         "peekOfCode": "class Settings(BaseSettings):\n    model_config = SettingsConfigDict(\n        env_file='.env', env_file_encoding='utf-8'\n    )\n    DATABASE_URL: str\n    SECRET_KEY: str\n    ALGORITHM: str\n    ACCESS_TOKEN_EXPIRE_MINUTES: int",
         "detail": "fast_zero.settings",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.567b8c6f2fb7_create_todos_table",
+        "description": "migrations.versions.567b8c6f2fb7_create_todos_table",
+        "peekOfCode": "def upgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.create_table('todos',\n    sa.Column('id', sa.Integer(), nullable=False),\n    sa.Column('title', sa.String(), nullable=False),\n    sa.Column('description', sa.String(), nullable=False),\n    sa.Column('state', sa.Enum('draft', 'todo', 'doing', 'done', 'trash', name='todostate'), nullable=False),\n    sa.Column('user_id', sa.Integer(), nullable=False),\n    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),\n    sa.PrimaryKeyConstraint('id')",
+        "detail": "migrations.versions.567b8c6f2fb7_create_todos_table",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.567b8c6f2fb7_create_todos_table",
+        "description": "migrations.versions.567b8c6f2fb7_create_todos_table",
+        "peekOfCode": "def downgrade() -> None:\n    # ### commands auto generated by Alembic - please adjust! ###\n    op.drop_table('todos')\n    # ### end Alembic commands ###",
+        "detail": "migrations.versions.567b8c6f2fb7_create_todos_table",
         "documentation": {}
     },
     {
@@ -1183,7 +1502,7 @@
         "kind": 2,
         "importPath": "tests.conftest",
         "description": "tests.conftest",
-        "peekOfCode": "def token(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.email, 'password': user.clean_password},\n    )\n    return response.json()['access_token']",
+        "peekOfCode": "def token(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.username, 'password': user.clean_password},\n    )\n    return response.json()['access_token']",
         "detail": "tests.conftest",
         "documentation": {}
     },
@@ -1201,7 +1520,7 @@
         "kind": 2,
         "importPath": "tests.test_auth",
         "description": "tests.test_auth",
-        "peekOfCode": "def test_get_token(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.email, 'password': user.clean_password},\n    )\n    token = response.json()\n    assert response.status_code == 200\n    assert 'access_token' in token\n    assert 'token_type' in token\ndef test_token_expired_after_time(client, user):",
+        "peekOfCode": "def test_get_token(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.username, 'password': user.clean_password},\n    )\n    token = response.json()\n    assert response.status_code == 200\n    assert 'access_token' in token\n    assert 'token_type' in token\ndef test_token_expired_after_time(client, user):",
         "detail": "tests.test_auth",
         "documentation": {}
     },
@@ -1210,7 +1529,7 @@
         "kind": 2,
         "importPath": "tests.test_auth",
         "description": "tests.test_auth",
-        "peekOfCode": "def test_token_expired_after_time(client, user):\n    with freeze_time('2024-01-01 12:00:00'):\n        response = client.post(\n            '/auth/token',\n            data={'username': user.email, 'password': user.clean_password},\n        )\n        assert response.status_code == 200\n        token = response.json()['access_token']\n    with freeze_time('2024-01-01 12:31:00'):\n        response = client.put(",
+        "peekOfCode": "def test_token_expired_after_time(client, user):\n    with freeze_time('2024-01-01 12:00:00'):\n        response = client.post(\n            '/auth/token',\n            data={'username': user.username, 'password': user.clean_password},\n        )\n        assert response.status_code == 200\n        token = response.json()['access_token']\n    with freeze_time('2024-01-01 12:31:00'):\n        response = client.put(",
         "detail": "tests.test_auth",
         "documentation": {}
     },
@@ -1219,7 +1538,7 @@
         "kind": 2,
         "importPath": "tests.test_auth",
         "description": "tests.test_auth",
-        "peekOfCode": "def test_token_inexistent_user(client):\n    response = client.post(\n        '/auth/token',\n        data={'username': 'no_username@domain.com', 'password': 'no_password'},\n    )\n    assert response.status_code == 400\n    assert response.json() == {'detail': 'Incorrect email or password'}\ndef test_token_wrong_password(client, user):\n    response = client.post(\n        '/auth/token',",
+        "peekOfCode": "def test_token_inexistent_user(client):\n    response = client.post(\n        '/auth/token',\n        data={'username': 'no_username', 'password': 'no_password'},\n    )\n    assert response.status_code == 400\n    assert response.json() == {'detail': 'Incorrect username or password'}\ndef test_token_wrong_password(client, user):\n    response = client.post(\n        '/auth/token',",
         "detail": "tests.test_auth",
         "documentation": {}
     },
@@ -1228,7 +1547,7 @@
         "kind": 2,
         "importPath": "tests.test_auth",
         "description": "tests.test_auth",
-        "peekOfCode": "def test_token_wrong_password(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.email, 'password': 'wrongpassword'},\n    )\n    assert response.status_code == 400\n    assert response.json() == {'detail': 'Incorrect email or password'}\ndef test_refresh_token(client, user, token):\n    response = client.post(\n        '/auth/refresh_token',",
+        "peekOfCode": "def test_token_wrong_password(client, user):\n    response = client.post(\n        '/auth/token',\n        data={'username': user.username, 'password': 'wrongpassword'},\n    )\n    assert response.status_code == 400\n    assert response.json() == {'detail': 'Incorrect username or password'}\ndef test_refresh_token(client, user, token):\n    response = client.post(\n        '/auth/refresh_token',",
         "detail": "tests.test_auth",
         "documentation": {}
     },
@@ -1246,7 +1565,7 @@
         "kind": 2,
         "importPath": "tests.test_auth",
         "description": "tests.test_auth",
-        "peekOfCode": "def test_token_expired_dont_refresh(client, user):\n    with freeze_time('2023-07-14 12:00:00'):\n        response = client.post(\n            '/auth/token',\n            data={'username': user.email, 'password': user.clean_password},\n        )\n        assert response.status_code == 200\n        token = response.json()['access_token']\n    with freeze_time('2023-07-14 12:31:00'):\n        response = client.post(",
+        "peekOfCode": "def test_token_expired_dont_refresh(client, user):\n    with freeze_time('2023-07-14 12:00:00'):\n        response = client.post(\n            '/auth/token',\n            data={'username': user.username, 'password': user.clean_password},\n        )\n        assert response.status_code == 200\n        token = response.json()['access_token']\n    with freeze_time('2023-07-14 12:31:00'):\n        response = client.post(",
         "detail": "tests.test_auth",
         "documentation": {}
     },
@@ -1264,7 +1583,16 @@
         "kind": 2,
         "importPath": "tests.test_db",
         "description": "tests.test_db",
-        "peekOfCode": "def test_create_user(session):\n    new_user = User(username='alice', password='secret', email='teste@test')\n    session.add(new_user)\n    session.commit()\n    user = session.scalar(select(User).where(User.username == 'alice'))\n    assert user.username == 'alice'\n    assert user.password == 'secret'\n    assert user.email == 'teste@test'",
+        "peekOfCode": "def test_create_user(session):\n    new_user = User(username='alice', password='secret', email='teste@test')\n    session.add(new_user)\n    session.commit()\n    user = session.scalar(select(User).where(User.username == 'alice'))\n    assert user.username == 'alice'\n    assert user.password == 'secret'\n    assert user.email == 'teste@test'\ndef test_create_todo(session, user):\n    new_todo = Todo(",
+        "detail": "tests.test_db",
+        "documentation": {}
+    },
+    {
+        "label": "test_create_todo",
+        "kind": 2,
+        "importPath": "tests.test_db",
+        "description": "tests.test_db",
+        "peekOfCode": "def test_create_todo(session, user):\n    new_todo = Todo(\n        title='Teste',\n        description='Teste',\n        state='draft',\n        user_id=user.id,\n    )\n    session.add(new_todo)\n    session.commit()\n    session.refresh(new_todo)",
         "detail": "tests.test_db",
         "documentation": {}
     },
@@ -1284,6 +1612,78 @@
         "description": "tests.test_security",
         "peekOfCode": "settings = Settings()\ndef test_jwt():\n    data = {'test': 'test'}\n    token = create_access_token(data)\n    decoded = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])\n    assert decoded['test'] == 'test'\n    assert decoded['exp']",
         "detail": "tests.test_security",
+        "documentation": {}
+    },
+    {
+        "label": "TodoFactory",
+        "kind": 6,
+        "importPath": "tests.test_todos",
+        "description": "tests.test_todos",
+        "peekOfCode": "class TodoFactory(factory.Factory):\n    class Meta:\n        model = Todo\n    title = factory.Faker('text')\n    description = factory.Faker('text')\n    state = factory.fuzzy.FuzzyChoice(TodoState)\n    user_id = 1\ndef test_create_todo(client, token):\n    response = client.post(\n        '/todos/',",
+        "detail": "tests.test_todos",
+        "documentation": {}
+    },
+    {
+        "label": "test_create_todo",
+        "kind": 2,
+        "importPath": "tests.test_todos",
+        "description": "tests.test_todos",
+        "peekOfCode": "def test_create_todo(client, token):\n    response = client.post(\n        '/todos/',\n        headers={'Authorization': f'Bearer {token}'},\n        json={\n            'title': 'Test todo',\n            'description': 'Test todo description',\n            'state': 'draft',\n        },\n    )",
+        "detail": "tests.test_todos",
+        "documentation": {}
+    },
+    {
+        "label": "test_list_todos",
+        "kind": 2,
+        "importPath": "tests.test_todos",
+        "description": "tests.test_todos",
+        "peekOfCode": "def test_list_todos(session, client, user, token):\n    session.bulk_save_objects(TodoFactory.create_batch(5, user_id=user.id))\n    session.commit()\n    response = client.get(\n        '/todos/',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert len(response.json()['todos']) == 5\ndef test_list_todos_pagination(session, user, client, token):\n    session.bulk_save_objects(TodoFactory.create_batch(5, user_id=user.id))",
+        "detail": "tests.test_todos",
+        "documentation": {}
+    },
+    {
+        "label": "test_list_todos_pagination",
+        "kind": 2,
+        "importPath": "tests.test_todos",
+        "description": "tests.test_todos",
+        "peekOfCode": "def test_list_todos_pagination(session, user, client, token):\n    session.bulk_save_objects(TodoFactory.create_batch(5, user_id=user.id))\n    session.commit()\n    response = client.get(\n        '/todos/?offset=1&limit=2',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert len(response.json()['todos']) == 2\ndef test_list_todos_filter_title(session, user, client, token):\n    session.bulk_save_objects(",
+        "detail": "tests.test_todos",
+        "documentation": {}
+    },
+    {
+        "label": "test_list_todos_filter_title",
+        "kind": 2,
+        "importPath": "tests.test_todos",
+        "description": "tests.test_todos",
+        "peekOfCode": "def test_list_todos_filter_title(session, user, client, token):\n    session.bulk_save_objects(\n        TodoFactory.create_batch(5, user_id=user.id, title='Test todo 1')\n    )\n    session.commit()\n    response = client.get(\n        '/todos/?title=Test todo 1',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert len(response.json()['todos']) == 5",
+        "detail": "tests.test_todos",
+        "documentation": {}
+    },
+    {
+        "label": "test_list_todos_filter_description",
+        "kind": 2,
+        "importPath": "tests.test_todos",
+        "description": "tests.test_todos",
+        "peekOfCode": "def test_list_todos_filter_description(session, user, client, token):\n    session.bulk_save_objects(\n        TodoFactory.create_batch(5, user_id=user.id, description='description')\n    )\n    session.commit()\n    response = client.get(\n        '/todos/?description=desc',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert len(response.json()['todos']) == 5",
+        "detail": "tests.test_todos",
+        "documentation": {}
+    },
+    {
+        "label": "test_list_todos_filter_state",
+        "kind": 2,
+        "importPath": "tests.test_todos",
+        "description": "tests.test_todos",
+        "peekOfCode": "def test_list_todos_filter_state(session, user, client, token):\n    session.bulk_save_objects(\n        TodoFactory.create_batch(5, user_id=user.id, state=TodoState.draft)\n    )\n    session.commit()\n    response = client.get(\n        '/todos/?state=draft',\n        headers={'Authorization': f'Bearer {token}'},\n    )\n    assert len(response.json()['todos']) == 5",
+        "detail": "tests.test_todos",
+        "documentation": {}
+    },
+    {
+        "label": "test_list_todos_filter_combined",
+        "kind": 2,
+        "importPath": "tests.test_todos",
+        "description": "tests.test_todos",
+        "peekOfCode": "def test_list_todos_filter_combined(session, user, client, token):\n    session.bulk_save_objects(\n        TodoFactory.create_batch(\n            5,\n            user_id=user.id,\n            title='Test todo combined',\n            description='combined description',\n            state=TodoState.done,\n        )\n    )",
+        "detail": "tests.test_todos",
         "documentation": {}
     },
     {

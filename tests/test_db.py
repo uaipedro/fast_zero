@@ -1,6 +1,7 @@
 from sqlalchemy import select
+
 from fast_zero.database import get_session
-from fast_zero.models import User
+from fast_zero.models import Todo, User
 
 
 def test_get_session():
@@ -23,3 +24,19 @@ def test_create_user(session):
     assert user.username == 'alice'
     assert user.password == 'secret'
     assert user.email == 'teste@test'
+
+
+def test_create_todo(session, user):
+    new_todo = Todo(
+        title='Teste',
+        description='Teste',
+        state='draft',
+        user_id=user.id,
+    )
+    session.add(new_todo)
+    session.commit()
+    session.refresh(new_todo)
+
+    user = session.scalar(select(User).where(User.id == user.id))
+
+    assert new_todo in user.todos

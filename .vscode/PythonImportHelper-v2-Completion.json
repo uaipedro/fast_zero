@@ -751,7 +751,7 @@
         "kind": 2,
         "importPath": "fast_zero.routes.auth",
         "description": "fast_zero.routes.auth",
-        "peekOfCode": "def login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:\n        raise HTTPException(\n            status_code=400, detail='Incorrect email or password'\n        )\n    if not verify_password(form_data.password, user.password):",
+        "peekOfCode": "def login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(\n        select(User).where(User.username == form_data.username)\n    )\n    if not user:\n        raise HTTPException(\n            status_code=400, detail='Incorrect username or password'",
         "detail": "fast_zero.routes.auth",
         "documentation": {}
     },
@@ -769,7 +769,7 @@
         "kind": 5,
         "importPath": "fast_zero.routes.auth",
         "description": "fast_zero.routes.auth",
-        "peekOfCode": "router = APIRouter(prefix='/auth', tags=['auth'])\nSession = Annotated[Session, Depends(get_session)]\nCurrentUser = Annotated[User, Depends(get_current_user)]\nRequestForm = Annotated[OAuth2PasswordRequestForm, Depends()]\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))",
+        "peekOfCode": "router = APIRouter(prefix='/auth', tags=['auth'])\nSession = Annotated[Session, Depends(get_session)]\nCurrentUser = Annotated[User, Depends(get_current_user)]\nRequestForm = Annotated[OAuth2PasswordRequestForm, Depends()]\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(",
         "detail": "fast_zero.routes.auth",
         "documentation": {}
     },
@@ -778,7 +778,7 @@
         "kind": 5,
         "importPath": "fast_zero.routes.auth",
         "description": "fast_zero.routes.auth",
-        "peekOfCode": "Session = Annotated[Session, Depends(get_session)]\nCurrentUser = Annotated[User, Depends(get_current_user)]\nRequestForm = Annotated[OAuth2PasswordRequestForm, Depends()]\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:",
+        "peekOfCode": "Session = Annotated[Session, Depends(get_session)]\nCurrentUser = Annotated[User, Depends(get_current_user)]\nRequestForm = Annotated[OAuth2PasswordRequestForm, Depends()]\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(\n        select(User).where(User.username == form_data.username)",
         "detail": "fast_zero.routes.auth",
         "documentation": {}
     },
@@ -787,7 +787,7 @@
         "kind": 5,
         "importPath": "fast_zero.routes.auth",
         "description": "fast_zero.routes.auth",
-        "peekOfCode": "CurrentUser = Annotated[User, Depends(get_current_user)]\nRequestForm = Annotated[OAuth2PasswordRequestForm, Depends()]\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:\n        raise HTTPException(",
+        "peekOfCode": "CurrentUser = Annotated[User, Depends(get_current_user)]\nRequestForm = Annotated[OAuth2PasswordRequestForm, Depends()]\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(\n        select(User).where(User.username == form_data.username)\n    )",
         "detail": "fast_zero.routes.auth",
         "documentation": {}
     },
@@ -796,7 +796,7 @@
         "kind": 5,
         "importPath": "fast_zero.routes.auth",
         "description": "fast_zero.routes.auth",
-        "peekOfCode": "RequestForm = Annotated[OAuth2PasswordRequestForm, Depends()]\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(select(User).where(User.email == form_data.username))\n    if not user:\n        raise HTTPException(\n            status_code=400, detail='Incorrect email or password'",
+        "peekOfCode": "RequestForm = Annotated[OAuth2PasswordRequestForm, Depends()]\n@router.post('/token', response_model=Token)\ndef login_for_access_token(\n    session: Session,\n    form_data: RequestForm,\n):\n    user = session.scalar(\n        select(User).where(User.username == form_data.username)\n    )\n    if not user:",
         "detail": "fast_zero.routes.auth",
         "documentation": {}
     },

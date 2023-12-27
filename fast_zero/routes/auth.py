@@ -26,16 +26,18 @@ def login_for_access_token(
     session: Session,
     form_data: RequestForm,
 ):
-    user = session.scalar(select(User).where(User.email == form_data.username))
+    user = session.scalar(
+        select(User).where(User.username == form_data.username)
+    )
 
     if not user:
         raise HTTPException(
-            status_code=400, detail='Incorrect email or password'
+            status_code=400, detail='Incorrect username or password'
         )
 
     if not verify_password(form_data.password, user.password):
         raise HTTPException(
-            status_code=400, detail='Incorrect email or password'
+            status_code=400, detail='Incorrect username or password'
         )
 
     access_token = create_access_token(data={'sub': user.email})

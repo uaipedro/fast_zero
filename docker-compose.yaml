@@ -9,8 +9,6 @@ services:
       - "5432:5432"
     env_file:
       - .env
-    healthcheck:
-      test: ["CMD", "pg_isready", "-q", "-d", "app_db", "-U", "app_user"]
 
   fastzero_app:
     image: fastzero_app

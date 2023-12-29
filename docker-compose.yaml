@@ -9,6 +9,14 @@ services:
       - "5432:5432"
     env_file:
       - .env
+    deploy:
+      resources:
+        limits:
+          cpus: '1.00'
+          memory: 1000M
+        reservations:
+          cpus: '0.5'
+          memory: 500M
 
   fastzero_app:
     image: fastzero_app
@@ -22,5 +30,13 @@ services:
       - fastzero_database
     env_file:
       - .env
+    deploy:
+      resources:
+        limits:
+          cpus: '1.00'
+          memory: 1000M
+        reservations:
+          cpus: '0.5'
+          memory: 500M
 volumes:
   pgdata:
